@@ -7,19 +7,26 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import commons.BaseTest;
+import nopcommerce.pageObject.DashboardPageObject;
 import nopcommerce.pageObject.LoginPageObject;
 import nopcommerce.pageObject.PageGeneratorManager;
 
 public class Login extends BaseTest{
 	WebDriver driver;
+	DashboardPageObject dashboardPage;
 	LoginPageObject loginPage;
+	
+	
 	
 	@Parameters({"browser", "appURL"})
 	@BeforeClass
 	public void beforeClass(String browser, String appURL) {
 		log.info("Pre-condition: Step 1 - Open browser '" + browser + "' navigate to '" + appURL + "'");
 		driver = getBrowserDriver(browser, appURL);
-		loginPage = PageGeneratorManager.getLoginPage(getDriver());
+		dashboardPage = PageGeneratorManager.getDashboardPage(getDriver());
+	
+		log.info("Pre-condition: Step 2 - Open register page");
+		
 		
 	}
 	
