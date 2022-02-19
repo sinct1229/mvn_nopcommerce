@@ -35,7 +35,7 @@
 		</layout>
 	</appender>
 
-	<category name="com.bankguru.authentication">
+	<category name="com.nopcommerce.authentication">
 		<priority value="all" />
 		<appender-ref ref="console" />
 		<appender-ref ref="logfile" />

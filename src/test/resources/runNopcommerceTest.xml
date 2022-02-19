@@ -6,7 +6,7 @@
 	<parameter name="browser" value="chrome"></parameter>
 	<test name="run on Chrome">
 		<classes>
-		<class name = ""></class>
+		<class name = "com.nopcommerce.authentication.Login"></class>
 		</classes>
 	</test>
 </suite> 

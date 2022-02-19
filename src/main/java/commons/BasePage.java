@@ -11,6 +11,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import nopcommerce.pageObject.PageGeneratorManager;
+
 public class BasePage {
 
 	private WebDriverWait explicit;
@@ -32,6 +34,7 @@ public class BasePage {
 	public String getDynamicLocator(String locator, String... params) {
 		return String.format(locator, (Object[]) params);
 	}
+	
 	public void clickToElement(WebDriver driver, String locator, String... params) {
 		waitForElementClickable(driver, locator, params);
 		findElementByXpath(driver, getDynamicLocator(locator, params)).click();
@@ -49,6 +52,11 @@ public class BasePage {
 
 	public void selectItemInDropdownByText(WebDriver driver, String locator, String text) {
 		select = new Select(findElementByXpath(driver, locator));
+		select.selectByVisibleText(text);
+	}
+	
+	public void selectItemInDropdownByText(WebDriver driver, String locator, String text, String ...params) {
+		select = new Select(findElementByXpath(driver, getDynamicLocator(locator, params)));
 		select.selectByVisibleText(text);
 	}
 
@@ -116,7 +124,10 @@ public class BasePage {
 	
 	public boolean isChecked(WebDriver driver, String locator) {
 		return findElementByXpath(driver, locator).isSelected();
-
+	}
+	
+	public boolean isChecked(WebDriver driver, String locator, String...params) {
+		return findElementByXpath(driver, getDynamicLocator(locator, params)).isSelected();
 	}
 
 	public void checkTheCheckboxOrRadio(WebDriver driver, String locator) {
@@ -223,4 +234,79 @@ public class BasePage {
 		jE.executeScript("window.scrollTo(0, document.body.scrollHeight)");
 
 	}
+
+	// --------------------
+	
+	public BasePage clickToHeaderButton(WebDriver driver, String name) {
+		waitForElementClickable(driver, BasePageUIs.HEADER_BUTTON, name);
+		clickToElement(driver, BasePageUIs.HEADER_BUTTON, name);
+		switch (name) {
+		case "Register":
+			return PageGeneratorManager.getRegisterPage(driver);
+		case "Log in":
+			return PageGeneratorManager.getLoginPage(driver);
+		default:
+			return PageGeneratorManager.getDashboardPage(driver);
+		}
+	}
+
+	public void clickToButtonByName(WebDriver driver, String name) {
+		scrollToElement(driver, BasePageUIs.BUTTON_BY_NAME, name);
+		waitForElementClickable(driver, BasePageUIs.BUTTON_BY_NAME, name);
+		clickToElement(driver, BasePageUIs.BUTTON_BY_NAME, name);
+	}
+	
+	public void clickToButtonByClassName(WebDriver driver, String className) {
+		scrollToElement(driver, BasePageUIs.BUTTON_BY_NAME, className);
+		waitForElementClickable(driver, BasePageUIs.BUTTON_BY_NAME, className);
+		clickToElement(driver, BasePageUIs.BUTTON_BY_NAME, className);
+	}
+
+	public void checkToCheckBoxOrRadioByID(WebDriver driver, String id) {
+		if( isChecked(driver, BasePageUIs.GENDER_CHECKBOX, id)!= true) {
+			clickToElement(driver, BasePageUIs.GENDER_CHECKBOX, id);
+		}
+		
+	}
+	
+	public void sendKeyToTextBoxByID(WebDriver driver, String value, String id) {
+		sendkeyToElement(driver, BasePageUIs.TEXTBOX, value, id);
+	}
+	
+
+	public void selectOptionByText(WebDriver driver, String value, String...params) {
+		selectItemInDropdownByText(driver, BasePageUIs.DROPDOWN, value, params);
+	}
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
