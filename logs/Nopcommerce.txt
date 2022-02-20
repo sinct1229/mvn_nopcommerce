@@ -1,0 +1,12 @@
+[INFO ] [2022-02-20 20:27:20,795] Pre-condition: Step 1 - Open browser 'chrome' navigate to 'https://demo.nopcommerce.com/'
+[INFO ] [2022-02-20 20:27:24,718] Pre-condition: Step 2 - Open login page
+[INFO ] [2022-02-20 20:27:25,711] Test_06_Login_Success: Input email to textbox
+[INFO ] [2022-02-20 20:27:25,869] Test_06_Login_Success: Input password to textbox
+[INFO ] [2022-02-20 20:27:26,009] Test_06_Login_Success: Click to login button
+[INFO ] [2022-02-20 20:27:27,137] Test_06_Login_Success: Verify log out text is displayed
+[INFO ] [2022-02-20 20:27:27,180]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-02-20 20:27:27,182] Get cookies
+[INFO ] [2022-02-20 20:27:27,305] OS name = windows 10
+[INFO ] [2022-02-20 20:27:27,305] Driver instance name = windows 10
+[INFO ] [2022-02-20 20:27:27,305] OS name = windows 10
+[INFO ] [2022-02-20 20:27:27,305] Driver instance name = windows 10

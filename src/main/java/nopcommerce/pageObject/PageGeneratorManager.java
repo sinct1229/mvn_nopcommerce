@@ -9,8 +9,11 @@ public class PageGeneratorManager {
 	private static LoginPageObject loginPage;
 	private static RegisterPageObject registerPage;
 	private static DashboardPageObject dashboardPage;
+	private static MyAccountPageObject myAccontPage;
+	private static CustomerInforPageObject customerInfoPage;
+	private static AddressPageObject addressPage;
 	
-	public static BasePage getDashboardPage(WebDriver driver) {
+	public static DashboardPageObject getDashboardPage(WebDriver driver) {
 		if (dashboardPage == null) {
 			return new DashboardPageObject(driver);
 		}
@@ -29,6 +32,28 @@ public class PageGeneratorManager {
 			return new RegisterPageObject(driver);
 		}
 		return new RegisterPageObject(driver);
+	}
+
+	public static BasePage getMyAccountPage(WebDriver driver) {
+		if (myAccontPage == null) {
+			return new MyAccountPageObject(driver);
+		}
+		return new MyAccountPageObject(driver);
+		
+	}
+
+	public static BasePage getCustomerInfoPage(WebDriver driver) {
+		if (customerInfoPage == null) {
+			return new CustomerInforPageObject(driver);
+		}
+		return new CustomerInforPageObject(driver);
+	}
+
+	public static BasePage getAddressPage(WebDriver driver) {
+		if (addressPage == null) {
+			return new AddressPageObject(driver);
+		}
+		return new AddressPageObject(driver);
 	}
 
 }

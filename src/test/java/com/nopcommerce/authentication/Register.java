@@ -33,7 +33,7 @@ public class Register extends BaseTest {
 		registerPage = (RegisterPageObject) dashboardPage.clickToHeaderButton(getDriver(), "Register");
 	}
 	
-	@Test
+	//@Test
 	public void Test_01_Register_With_Empty_Data() {
 		log.info("Test_01_Register_With_Empty_Data: Click on register button");
 		registerPage.clickToButtonByName(getDriver(), "register-button");
@@ -54,7 +54,7 @@ public class Register extends BaseTest {
 		verifyTrue(registerPage.isErrorMessageDisplayedByText(RegisterData.ErrorMessage.C_PASSWORD_ERROR));
 	}
 	
-	@Test
+	//@Test
 	public void Test_02_Register_With_Invalid_Email() {
 		log.info("Test_02_Register_With_Invalid_Email: Click on register button in header");
 		registerPage.clickToHeaderButton(getDriver(), "Register");
@@ -110,13 +110,13 @@ public class Register extends BaseTest {
 		log.info("Test_03_Register_Success: Input lastname");
 		registerPage.sendKeyToTextBoxByID(getDriver(), RegisterData.RegisterSuccess.LASTNAME, "LastName");
 		
-		log.info("Test_02_Register_With_Invalid_Email: Select day");
+		log.info("Test_03_Register_Success: Select day");
 		registerPage.selectOptionByText(getDriver(), RegisterData.RegisterSuccess.DAY, "DateOfBirthDay");
 		
-		log.info("Test_02_Register_With_Invalid_Email: Select month");
+		log.info("Test_03_Register_Success: Select month");
 		registerPage.selectOptionByText(getDriver(), RegisterData.RegisterSuccess.MONTH, "DateOfBirthMonth");
 		
-		log.info("Test_02_Register_With_Invalid_Email: Select year");
+		log.info("Test_03_Register_Success: Select year");
 		registerPage.selectOptionByText(getDriver(), RegisterData.RegisterSuccess.YEAR, "DateOfBirthYear");
 		
 		log.info("Test_03_Register_Success: Input email");
@@ -141,7 +141,7 @@ public class Register extends BaseTest {
 		registerPage.clickToHeaderButton(getDriver(), "Log out");
 	}
 	
-	@Test
+	//@Test
 	public void Test_04_Register_With_Existed_Email() {
 		log.info("Test_04_Register_With_Existed_Email: Click on register button in header");
 		registerPage.clickToHeaderButton(getDriver(), "Register");
@@ -155,13 +155,13 @@ public class Register extends BaseTest {
 		log.info("Test_04_Register_With_Existed_Email: Input lastname");
 		registerPage.sendKeyToTextBoxByID(getDriver(), RegisterData.RegisterSuccess.LASTNAME, "LastName");
 		
-		log.info("Test_02_Register_With_Invalid_Email: Select day");
+		log.info("Test_04_Register_With_Existed_Email: Select day");
 		registerPage.selectOptionByText(getDriver(), RegisterData.RegisterSuccess.DAY, "DateOfBirthDay");
 		
-		log.info("Test_02_Register_With_Invalid_Email: Select month");
+		log.info("Test_04_Register_With_Existed_Email: Select month");
 		registerPage.selectOptionByText(getDriver(), RegisterData.RegisterSuccess.MONTH, "DateOfBirthMonth");
 		
-		log.info("Test_02_Register_With_Invalid_Email: Select year");
+		log.info("Test_04_Register_With_Existed_Email: Select year");
 		registerPage.selectOptionByText(getDriver(), RegisterData.RegisterSuccess.YEAR, "DateOfBirthYear");
 		
 		log.info("Test_04_Register_With_Existed_Email: Input existed email");
@@ -183,7 +183,7 @@ public class Register extends BaseTest {
 		verifyTrue(registerPage.isExistedEMailErrorDisplayed(RegisterData.ErrorMessage.EXISTED_EMAIL));
 	}
 	
-	@Test
+	//@Test
 	public void Test_05_Register_With_Invalid_Password() {
 		log.info("Test_05_Register_With_Invalid_Password: Click on register button in header");
 		registerPage.clickToHeaderButton(getDriver(), "Register");
@@ -199,13 +199,13 @@ public class Register extends BaseTest {
 		log.info("Test_05_Register_With_Invalid_Password: Input lastname");
 		registerPage.sendKeyToTextBoxByID(getDriver(), RegisterData.RegisterSuccess.LASTNAME, "LastName");
 		
-		log.info("Test_02_Register_With_Invalid_Email: Select day");
+		log.info("Test_05_Register_With_Invalid_Password: Select day");
 		registerPage.selectOptionByText(getDriver(), RegisterData.RegisterSuccess.DAY, "DateOfBirthDay");
 		
-		log.info("Test_02_Register_With_Invalid_Email: Select month");
+		log.info("Test_05_Register_With_Invalid_Password: Select month");
 		registerPage.selectOptionByText(getDriver(), RegisterData.RegisterSuccess.MONTH, "DateOfBirthMonth");
 		
-		log.info("Test_02_Register_With_Invalid_Email: Select year");
+		log.info("Test_05_Register_With_Invalid_Password: Select year");
 		registerPage.selectOptionByText(getDriver(), RegisterData.RegisterSuccess.YEAR, "DateOfBirthYear");
 		
 		log.info("Test_05_Register_With_Invalid_Password: Input email");
@@ -228,7 +228,7 @@ public class Register extends BaseTest {
 		verifyTrue(registerPage.isErrorMessageDisplayedByText(RegisterData.ErrorMessage.INVALID_PASSWORD_2));
 	}
 	
-	@Test
+	//@Test
 	public void Test_06_Register_With_Unmatch_Password_CPassword() {
 		log.info("Test_06_Register_With_Unmatch_Password_CPassword: Click on register button in header");
 		registerPage.clickToHeaderButton(getDriver(), "Register");
@@ -242,13 +242,13 @@ public class Register extends BaseTest {
 		log.info("Test_06_Register_With_Unmatch_Password_CPassword: Input lastname");
 		registerPage.sendKeyToTextBoxByID(getDriver(), RegisterData.RegisterSuccess.LASTNAME, "LastName");
 		
-		log.info("Test_02_Register_With_Invalid_Email: Select day");
+		log.info("Test_05_Register_With_Invalid_Password: Select day");
 		registerPage.selectOptionByText(getDriver(), RegisterData.RegisterSuccess.DAY, "DateOfBirthDay");
 		
-		log.info("Test_02_Register_With_Invalid_Email: Select month");
+		log.info("Test_05_Register_With_Invalid_Password: Select month");
 		registerPage.selectOptionByText(getDriver(), RegisterData.RegisterSuccess.MONTH, "DateOfBirthMonth");
 		
-		log.info("Test_02_Register_With_Invalid_Email: Select year");
+		log.info("Test_05_Register_With_Invalid_Password: Select year");
 		registerPage.selectOptionByText(getDriver(), RegisterData.RegisterSuccess.YEAR, "DateOfBirthYear");
 		
 		log.info("Test_06_Register_With_Unmatch_Password_CPassword: Input email");

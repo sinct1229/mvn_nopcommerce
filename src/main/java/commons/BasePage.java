@@ -1,9 +1,11 @@
 package commons;
 
 import java.util.List;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Cookie;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -234,6 +236,20 @@ public class BasePage {
 		jE.executeScript("window.scrollTo(0, document.body.scrollHeight)");
 
 	}
+	
+	public Set<Cookie> getAllCookies(WebDriver driver){
+		return driver.manage().getCookies();
+	}
+
+	public void setCookie(WebDriver driver, Set<Cookie> allCookies) {
+		for(Cookie cookie:allCookies) {
+			driver.manage().addCookie(cookie);
+		}
+	}
+	
+	public void refreshCurrentPage(WebDriver driver) {
+		driver.navigate().refresh();
+	}
 
 	// --------------------
 	
@@ -245,6 +261,8 @@ public class BasePage {
 			return PageGeneratorManager.getRegisterPage(driver);
 		case "Log in":
 			return PageGeneratorManager.getLoginPage(driver);
+		case "My account":
+			return PageGeneratorManager.getMyAccountPage(driver);
 		default:
 			return PageGeneratorManager.getDashboardPage(driver);
 		}
@@ -257,9 +275,9 @@ public class BasePage {
 	}
 	
 	public void clickToButtonByClassName(WebDriver driver, String className) {
-		scrollToElement(driver, BasePageUIs.BUTTON_BY_NAME, className);
-		waitForElementClickable(driver, BasePageUIs.BUTTON_BY_NAME, className);
-		clickToElement(driver, BasePageUIs.BUTTON_BY_NAME, className);
+		scrollToElement(driver, BasePageUIs.BUTTON_BY_CLASS, className);
+		waitForElementClickable(driver, BasePageUIs.BUTTON_BY_CLASS, className);
+		clickToElement(driver, BasePageUIs.BUTTON_BY_CLASS, className);
 	}
 
 	public void checkToCheckBoxOrRadioByID(WebDriver driver, String id) {

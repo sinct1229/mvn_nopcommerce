@@ -22,7 +22,5 @@ public class LoginPageObject extends BasePage {
 		return isDisplayedElement(driver, LoginPageUIs.SUMMARY_ERROR, invalidEmail);
 	}
 
-	public boolean isLogOutTextIsDisplayed() {
-		return isDisplayedElement(driver, LoginPageUIs.HEADER_BUTTON, "Log out");
-	}
+	
 }
