@@ -23,4 +23,9 @@ public class MyAccountData {
 		public static final String PHONE_NUMBER = "0961448753";
 		public static final String FAX_NUMBER ="7000";
 	}
+	
+	public static class ChangePassword {
+		public static final String CHANGE_SUCCESS = "Password was changed";
+		
+	}
 }

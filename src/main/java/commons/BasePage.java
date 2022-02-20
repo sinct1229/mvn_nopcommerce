@@ -263,6 +263,8 @@ public class BasePage {
 			return PageGeneratorManager.getLoginPage(driver);
 		case "My account":
 			return PageGeneratorManager.getMyAccountPage(driver);
+		case "Log out":
+			return PageGeneratorManager.getDashboardPage(driver);
 		default:
 			return PageGeneratorManager.getDashboardPage(driver);
 		}

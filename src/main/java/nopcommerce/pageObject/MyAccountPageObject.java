@@ -23,6 +23,8 @@ public class MyAccountPageObject extends BasePage{
 			return PageGeneratorManager.getCustomerInfoPage(driver);
 		case "Addresses":
 			return PageGeneratorManager.getAddressPage(driver);
+		case "Change password":
+			return PageGeneratorManager.getChangePasswordPage(driver);
 		default:
 			return PageGeneratorManager.getMyAccountPage(driver);
 		}

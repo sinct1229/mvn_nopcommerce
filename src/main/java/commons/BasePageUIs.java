@@ -10,5 +10,6 @@ public class BasePageUIs {
 	public static final String DROPDOWN = "//select[@name = '%s']";
 	public static final String OPTION = "//select[@name = '%s']//option[@selected]";
 	public static final String SUMMARY_ERROR = "//div[contains(string() , '%s')]";
+	public static final String BAR_NOTIFICATION = "//div[contains(@class , 'bar-notification') and string() = '%s']";
 
 }

@@ -6,10 +6,11 @@
 	<parameter name="browser" value="chrome"></parameter>
 	<test name="run on Chrome">
 		<classes>
-		<!-- <class name = "com.nopcommerce.authentication.Register"></class> -->
+		<class name = "com.nopcommerce.authentication.Register"></class>
 		<class name = "com.nopcommerce.authentication.Login"></class>
 		<!-- <class name = "com.nopcommerce.myAccount.CustomerInfo"></class> -->
-		<class name = "com.nopcommerce.myAccount.Addresses"></class>
+		<!-- <class name = "com.nopcommerce.myAccount.Addresses"></class> -->
+		<class name = "com.nopcommerce.myAccount.ChangePassword"></class>
 		</classes>
 	</test>
 </suite> 
