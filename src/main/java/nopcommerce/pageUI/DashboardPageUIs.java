@@ -3,6 +3,7 @@ package nopcommerce.pageUI;
 import commons.BasePageUIs;
 
 public class DashboardPageUIs extends BasePageUIs{
+	public static final String CLOSE_BAR_NOTIFICATION = "//div[@id = 'bar-notification']//span[@class = 'close']";
 	
 
 }
