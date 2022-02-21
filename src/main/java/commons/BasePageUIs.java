@@ -11,5 +11,6 @@ public class BasePageUIs {
 	public static final String OPTION = "//select[@name = '%s']//option[@selected]";
 	public static final String SUMMARY_ERROR = "//div[contains(string() , '%s')]";
 	public static final String BAR_NOTIFICATION = "//div[contains(@class , 'bar-notification') and string() = '%s']";
+	public static final String FOOTER_MENU = "//div[@class = 'footer']//a[text() = '%s']";
 
 }

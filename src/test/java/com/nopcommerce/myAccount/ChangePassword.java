@@ -75,6 +75,9 @@ public class ChangePassword extends BaseTest{
 		
 		log.info("Log out");
 		dashboardPage = (DashboardPageObject) changePasswordPage.clickToHeaderButton(driver, "Log out");
+
+		log.info("Log out");
+		dashboardPage = (DashboardPageObject) changePasswordPage.clickToHeaderButton(driver, "Log out");
 		
 		log.info("Login");
 		loginPage = (LoginPageObject) dashboardPage.clickToHeaderButton(driver, "Log in");
@@ -92,6 +95,9 @@ public class ChangePassword extends BaseTest{
 		verifyTrue(loginPage.isSummaryErrorMessageDisplayed(LoginData.ErrorMessage.SUMMARY_ERROR));
 		verifyTrue(loginPage.isSummaryErrorMessageDisplayed(LoginData.ErrorMessage.INVALID_PASSWORD));
 		
+		log.info("Input email");
+		loginPage.sendKeyToTextBoxByID(driver, GlobalConstants.EMAIL, "Email");
+		
 		log.info("Input new password");
 		loginPage.sendKeyToTextBoxByID(driver, GlobalConstants.NEW_PASSWORD, "Password");
 		
@@ -106,6 +112,7 @@ public class ChangePassword extends BaseTest{
 	
 	@AfterClass
 	public void afterClass() {
+		closeBrowserAndDriver();
 		
 	}
 

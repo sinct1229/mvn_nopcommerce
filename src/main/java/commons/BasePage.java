@@ -254,7 +254,6 @@ public class BasePage {
 	// --------------------
 	
 	public BasePage clickToHeaderButton(WebDriver driver, String name) {
-		waitForElementClickable(driver, BasePageUIs.HEADER_BUTTON, name);
 		clickToElement(driver, BasePageUIs.HEADER_BUTTON, name);
 		switch (name) {
 		case "Register":
@@ -296,6 +295,19 @@ public class BasePage {
 
 	public void selectOptionByText(WebDriver driver, String value, String...params) {
 		selectItemInDropdownByText(driver, BasePageUIs.DROPDOWN, value, params);
+	}
+	
+	public BasePage openPageInFooterByName(WebDriver driver, String pageName) {
+		scrollToBottomPage(driver);
+		clickToElement(driver, BasePageUIs.FOOTER_MENU, pageName);
+		switch (pageName) {
+		case "Search":
+			return PageGeneratorManager.getSearchPage(driver);
+
+		default:
+			return PageGeneratorManager.getDashboardPage(driver);
+		}
+		
 	}
 	
 	
