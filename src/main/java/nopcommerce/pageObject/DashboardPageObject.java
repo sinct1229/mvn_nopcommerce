@@ -27,4 +27,18 @@ public class DashboardPageObject extends BasePage{
 		clickToElement(driver, DashboardPageUIs.PARENT_MENU, menu);
 		return PageGeneratorManager.getProductListPage(driver);
 	}
+
+	public void OpenProductDetail(String productTitle) {
+		scrollToElement(driver, DashboardPageUIs.PRODUCT_LINK, productTitle);
+		clickToElement(driver, DashboardPageUIs.PRODUCT_LINK , productTitle);
+	}
+
+	public void clickToAddYourReview() {
+		clickToElement(driver, DashboardPageUIs.REVIEW);
+		
+	}
+
+	public boolean isReviewAddedSuccessfully(String titleReview) {
+		return isDisplayedElement(driver, DashboardPageUIs.EXISTED_REVIEW, titleReview);
+	}
 }

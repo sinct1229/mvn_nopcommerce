@@ -28,5 +28,11 @@ public class MyAccountData {
 		public static final String CHANGE_SUCCESS = "Password was changed";
 		
 	}
+	public static class Review{
+		public static final String PRODUCT = "Build your own computer";
+		public static final String TITLE_REVIEW = "Its quality";
+		public static final String TEXT_REVIEW = "I think it's so good";
+		
+	}
 	
 }

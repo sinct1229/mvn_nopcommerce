@@ -292,6 +292,10 @@ public class BasePage {
 		sendkeyToElement(driver, BasePageUIs.TEXTBOX, value, id);
 	}
 	
+	public void sendKeyToTextAreaByID(WebDriver driver, String value, String id) {
+		sendkeyToElement(driver, BasePageUIs.TEXTAREA, value, id);
+	}
+	
 
 	public void selectOptionByText(WebDriver driver, String value, String...params) {
 		selectItemInDropdownByText(driver, BasePageUIs.DROPDOWN, value, params);

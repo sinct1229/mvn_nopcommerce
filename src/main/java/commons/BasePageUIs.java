@@ -13,5 +13,6 @@ public class BasePageUIs {
 	public static final String BAR_NOTIFICATION = "//div[contains(@class , 'bar-notification') and string() = '%s']";
 	public static final String FOOTER_MENU = "//div[@class = 'footer']//a[text() = '%s']";
 	public static final String PRODUCT_TITLE = "//h2[string() = '%s']";
+	public static final String TEXTAREA = "//textarea[@id = '%s']";
 
 }

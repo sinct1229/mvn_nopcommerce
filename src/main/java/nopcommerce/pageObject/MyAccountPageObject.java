@@ -3,7 +3,6 @@ package nopcommerce.pageObject;
 import org.openqa.selenium.WebDriver;
 
 import commons.BasePage;
-import nopcommerce.pageUI.DashboardPageUIs;
 import nopcommerce.pageUI.MyAccountPageUIs;
 
 public class MyAccountPageObject extends BasePage{
@@ -16,7 +15,6 @@ public class MyAccountPageObject extends BasePage{
 	}
 
 	public BasePage openMenuByText(String name) {
-		waitForElementInvisible(driver, DashboardPageUIs.CLOSE_BAR_NOTIFICATION);
 		clickToElement(driver, MyAccountPageUIs.MENU_OPTION, name);
 		switch (name) {
 		case "Customer info":
@@ -29,5 +27,9 @@ public class MyAccountPageObject extends BasePage{
 			return PageGeneratorManager.getMyAccountPage(driver);
 		}
 		
+	}
+
+	public boolean isReviewAddedSuccessfully(String titleReview) {
+		return isDisplayedElement(driver, MyAccountPageUIs.EXISTED_REVIEW, titleReview);
 	}
 }
