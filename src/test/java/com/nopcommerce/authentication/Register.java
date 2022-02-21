@@ -33,7 +33,7 @@ public class Register extends BaseTest {
 		registerPage = (RegisterPageObject) dashboardPage.clickToHeaderButton(getDriver(), "Register");
 	}
 	
-	//@Test
+	@Test
 	public void Test_01_Register_With_Empty_Data() {
 		log.info("Test_01_Register_With_Empty_Data: Click on register button");
 		registerPage.clickToButtonByName(getDriver(), "register-button");
@@ -54,7 +54,7 @@ public class Register extends BaseTest {
 		verifyTrue(registerPage.isErrorMessageDisplayedByText(RegisterData.ErrorMessage.C_PASSWORD_ERROR));
 	}
 	
-	//@Test
+	@Test
 	public void Test_02_Register_With_Invalid_Email() {
 		log.info("Test_02_Register_With_Invalid_Email: Click on register button in header");
 		registerPage.clickToHeaderButton(getDriver(), "Register");
@@ -141,7 +141,7 @@ public class Register extends BaseTest {
 		registerPage.clickToHeaderButton(getDriver(), "Log out");
 	}
 	
-	//@Test
+	@Test
 	public void Test_04_Register_With_Existed_Email() {
 		log.info("Test_04_Register_With_Existed_Email: Click on register button in header");
 		registerPage.clickToHeaderButton(getDriver(), "Register");
@@ -183,7 +183,7 @@ public class Register extends BaseTest {
 		verifyTrue(registerPage.isExistedEMailErrorDisplayed(RegisterData.ErrorMessage.EXISTED_EMAIL));
 	}
 	
-	//@Test
+	@Test
 	public void Test_05_Register_With_Invalid_Password() {
 		log.info("Test_05_Register_With_Invalid_Password: Click on register button in header");
 		registerPage.clickToHeaderButton(getDriver(), "Register");
@@ -228,7 +228,7 @@ public class Register extends BaseTest {
 		verifyTrue(registerPage.isErrorMessageDisplayedByText(RegisterData.ErrorMessage.INVALID_PASSWORD_2));
 	}
 	
-	//@Test
+	@Test
 	public void Test_06_Register_With_Unmatch_Password_CPassword() {
 		log.info("Test_06_Register_With_Unmatch_Password_CPassword: Click on register button in header");
 		registerPage.clickToHeaderButton(getDriver(), "Register");

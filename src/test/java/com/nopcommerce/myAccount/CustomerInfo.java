@@ -2,7 +2,6 @@ package com.nopcommerce.myAccount;
 
 import org.testng.annotations.Test;
 
-import com.nopcommerce.authentication.Login;
 import com.nopcommerce.data.MyAccountData;
 
 import commons.BaseTest;
@@ -31,20 +30,18 @@ public class CustomerInfo extends BaseTest{
 		log.info("Pre-condition: Step 1 - Open browser '" + browser + "' navigate to '" + appURL + "'");
 		driver = getBrowserDriver(browser, appURL);
 		dashboardPage = (DashboardPageObject) PageGeneratorManager.getDashboardPage(getDriver());
-		
 		log.info("Pre-condition: Step 2 - Open login page");
 		loginPage = (LoginPageObject) dashboardPage.clickToHeaderButton(getDriver(), "Log in");
 		
-		log.info("Pre-condition: Step 3 - Set cookies");
-		loginPage.setCookie(getDriver(), Login.loginPageCookies);
+		log.info("Pre-condition: Step 3 - Login to site");
 		
-		loginPage.sleepInSecond(3);
+		loginPage.sendKeyToTextBoxByID(driver, GlobalConstants.EMAIL, "Email");
 		
-		loginPage.refreshCurrentPage(getDriver());
+		loginPage.sendKeyToTextBoxByID(driver, GlobalConstants.PASSWORD, "Password");
 		
-		dashboardPage = PageGeneratorManager.getDashboardPage(getDriver());
+		loginPage.clickToButtonByClassName(driver, "login-button");
 		
-		dashboardPage.closeBarNotification();
+		dashboardPage = PageGeneratorManager.getDashboardPage(driver);
 		
 		dashboardPage.clickToHeaderButton(getDriver(), "My account");
 		

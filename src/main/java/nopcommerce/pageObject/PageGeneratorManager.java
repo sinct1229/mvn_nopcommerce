@@ -14,6 +14,7 @@ public class PageGeneratorManager {
 	private static AddressPageObject addressPage;
 	private static ChangePasswordPageObject changePasswordPage;
 	private static SearchPageObject searchPage;
+	private static ProductListPageObject productPage;
 	
 	public static DashboardPageObject getDashboardPage(WebDriver driver) {
 		if (dashboardPage == null) {
@@ -70,6 +71,13 @@ public class PageGeneratorManager {
 			return new SearchPageObject(driver);
 		}
 		return new SearchPageObject(driver);
+	}
+
+	public static ProductListPageObject getProductListPage(WebDriver driver) {
+		if (productPage == null) {
+			return new ProductListPageObject(driver);
+		}
+		return new ProductListPageObject(driver);
 	}
 
 }

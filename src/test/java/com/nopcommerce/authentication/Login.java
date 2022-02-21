@@ -35,7 +35,7 @@ public class Login extends BaseTest{
 		
 	}
 	
-	//@Test
+	@Test
 	public void Test_01_Login_With_Empty_Data() {
 		log.info("Test_01_Login_With_Empty_Data: Click to login button");
 		loginPage.clickToButtonByClassName(driver, "login-button");
@@ -44,7 +44,7 @@ public class Login extends BaseTest{
 		verifyTrue(loginPage.isErrorMessageDisplayedByText(LoginData.ErrorMessage.EMPTY_EMAIL));
 	}
 	
-	//@Test
+	@Test
 	public void Test_02_Login_With_Invalid_Email() {
 
 		log.info("Test_02_Login_With_Invalid_Email: Input invalid email to textbox");
@@ -57,7 +57,7 @@ public class Login extends BaseTest{
 		verifyTrue(loginPage.isErrorMessageDisplayedByText(LoginData.ErrorMessage.INVALID_EMAIL));
 	}
 	
-	//@Test
+	@Test
 	public void Test_03_Login_With_No_Existed_Email() {
 
 		log.info("Test_03_Login_With_No_Existed_Email: Input no-existed email to textbox");
@@ -74,7 +74,7 @@ public class Login extends BaseTest{
 		verifyTrue(loginPage.isSummaryErrorMessageDisplayed(LoginData.ErrorMessage.NO_EXISTED_EMAIL));
 	}
 	
-	//@Test
+	@Test
 	public void Test_04_Login_With_Empty_Password() {
 
 		log.info("Test_04_Login_With_Empty_Password: Input email to textbox");
@@ -88,7 +88,7 @@ public class Login extends BaseTest{
 		verifyTrue(loginPage.isSummaryErrorMessageDisplayed(LoginData.ErrorMessage.INVALID_PASSWORD));
 	}
 	
-	//@Test
+	@Test
 	public void Test_05_Login_With_Invalid_Password() {
 
 		log.info("Test_05_Login_With_Invalid_Password: Input email to textbox");

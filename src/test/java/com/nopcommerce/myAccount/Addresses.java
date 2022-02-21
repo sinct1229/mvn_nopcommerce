@@ -5,11 +5,10 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-
-import com.nopcommerce.authentication.Login;
 import com.nopcommerce.data.MyAccountData.Address;
 
 import commons.BaseTest;
+import commons.GlobalConstants;
 import nopcommerce.pageObject.AddressPageObject;
 import nopcommerce.pageObject.DashboardPageObject;
 import nopcommerce.pageObject.LoginPageObject;
@@ -33,16 +32,15 @@ public class Addresses extends BaseTest{
 		log.info("Pre-condition: Step 2 - Open login page");
 		loginPage = (LoginPageObject) dashboardPage.clickToHeaderButton(getDriver(), "Log in");
 		
-		log.info("Pre-condition: Step 3 - Set cookies");
-		loginPage.setCookie(getDriver(), Login.loginPageCookies);
+		log.info("Pre-condition: Step 3 - Login to site");
 		
-		loginPage.sleepInSecond(3);
+		loginPage.sendKeyToTextBoxByID(driver, GlobalConstants.EMAIL, "Email");
 		
-		loginPage.refreshCurrentPage(getDriver());
+		loginPage.sendKeyToTextBoxByID(driver, GlobalConstants.PASSWORD, "Password");
 		
-		dashboardPage = PageGeneratorManager.getDashboardPage(getDriver());
+		loginPage.clickToButtonByClassName(driver, "login-button");
 		
-		dashboardPage.closeBarNotification();
+		dashboardPage = PageGeneratorManager.getDashboardPage(driver);
 		
 		dashboardPage.clickToHeaderButton(getDriver(), "My account");
 		

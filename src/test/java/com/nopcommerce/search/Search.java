@@ -6,7 +6,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-import com.nopcommerce.data.MyAccountData;
+import com.nopcommerce.data.SearchData;
 
 import commons.BaseTest;
 import nopcommerce.pageObject.DashboardPageObject;
@@ -35,7 +35,7 @@ public class Search extends BaseTest{
 		searchPage.clickToButtonByClassName(driver, "search-button");
 		
 		log.info("Verify error message is displayed");
-		verifyTrue(searchPage.isErrorMessageDisplayed(MyAccountData.Seach.SEARCH_EMPTY_MESSAGE));
+		verifyTrue(searchPage.isErrorMessageDisplayed(SearchData.Seach.SEARCH_EMPTY_MESSAGE));
 		
 	}
 	
@@ -45,13 +45,13 @@ public class Search extends BaseTest{
 		searchPage.openPageInFooterByName(driver, "Search");
 		
 		log.info("Input keyword to textbox");
-		searchPage.sendKeyToTextBoxByID(driver, MyAccountData.Seach.DATA_NO_EXISTED, "q");
+		searchPage.sendKeyToTextBoxByID(driver, SearchData.Seach.DATA_NO_EXISTED, "q");
 		
 		log.info("Click to search button");
 		searchPage.clickToButtonByClassName(driver, "search-button");
 		
 		log.info("Verify error message is displayed");
-		verifyTrue(searchPage.isErrorMessageDisplayed(MyAccountData.Seach.DATA_NO_EXISTED_MESSAGE));
+		verifyTrue(searchPage.isErrorMessageDisplayed(SearchData.Seach.DATA_NO_EXISTED_MESSAGE));
 	}
 	
 	
@@ -61,13 +61,13 @@ public class Search extends BaseTest{
 		searchPage.openPageInFooterByName(driver, "Search");
 		
 		log.info("Input keyword to textbox");
-		searchPage.sendKeyToTextBoxByID(driver, MyAccountData.Seach.SEARCH_LIKE, "q");
+		searchPage.sendKeyToTextBoxByID(driver, SearchData.Seach.SEARCH_LIKE, "q");
 		
 		log.info("Click to search button");
 		searchPage.clickToButtonByClassName(driver, "search-button");
 		
 		log.info("Verify product contained keyword is displayed");
-		verifyTrue(searchPage.isProductDisplayed(MyAccountData.Seach.PRODUCT_LIKE));
+		verifyTrue(searchPage.isProductDisplayed(SearchData.Seach.PRODUCT_LIKE));
 	}
 	
 	@Test
@@ -76,13 +76,13 @@ public class Search extends BaseTest{
 		searchPage.openPageInFooterByName(driver, "Search");
 		
 		log.info("Input keyword to textbox");
-		searchPage.sendKeyToTextBoxByID(driver, MyAccountData.Seach.SEARCH, "q");
+		searchPage.sendKeyToTextBoxByID(driver, SearchData.Seach.SEARCH, "q");
 		
 		log.info("Click to search button");
 		searchPage.clickToButtonByClassName(driver, "search-button");
 		
 		log.info("Verify product contained keyword is displayed");
-		verifyTrue(searchPage.isProductDisplayed(MyAccountData.Seach.SEARCH));
+		verifyTrue(searchPage.isProductDisplayed(SearchData.Seach.SEARCH));
 	}
 	
 	@Test
@@ -91,19 +91,19 @@ public class Search extends BaseTest{
 		searchPage.openPageInFooterByName(driver, "Search");
 		
 		log.info("Input keyword to textbox");
-		searchPage.sendKeyToTextBoxByID(driver, MyAccountData.Seach.SEARCH_KEYWORD, "q");
+		searchPage.sendKeyToTextBoxByID(driver, SearchData.Seach.SEARCH_KEYWORD, "q");
 		
 		log.info("Click to advance checkbox");
 		searchPage.checkToCheckBoxOrRadioByID(driver, "advs");
 		
 		log.info("Select category");
-		searchPage.selectOptionByText(driver, MyAccountData.Seach.PARENT_CATEGORY, "cid");
+		searchPage.selectOptionByText(driver, SearchData.Seach.PARENT_CATEGORY, "cid");
 		
 		log.info("Click to search button");
 		searchPage.clickToButtonByClassName(driver, "search-button");
 		
 		log.info("Verify no data message is displayed");
-		verifyTrue(searchPage.isErrorMessageDisplayed(MyAccountData.Seach.DATA_NO_EXISTED_MESSAGE));
+		verifyTrue(searchPage.isErrorMessageDisplayed(SearchData.Seach.DATA_NO_EXISTED_MESSAGE));
 	}
 	
 	@Test
@@ -112,13 +112,13 @@ public class Search extends BaseTest{
 		searchPage.openPageInFooterByName(driver, "Search");
 		
 		log.info("Input keyword to textbox");
-		searchPage.sendKeyToTextBoxByID(driver, MyAccountData.Seach.SEARCH_KEYWORD, "q");
+		searchPage.sendKeyToTextBoxByID(driver, SearchData.Seach.SEARCH_KEYWORD, "q");
 		
 		log.info("Click to advance checkbox");
 		searchPage.checkToCheckBoxOrRadioByID(driver, "advs");
 		
 		log.info("Select parent category");
-		searchPage.selectOptionByText(driver, MyAccountData.Seach.PARENT_CATEGORY, "cid");
+		searchPage.selectOptionByText(driver, SearchData.Seach.PARENT_CATEGORY, "cid");
 		
 		log.info("Check to sub category checkbox");
 		searchPage.checkToCheckBoxOrRadioByID(driver, "isc");
@@ -127,7 +127,7 @@ public class Search extends BaseTest{
 		searchPage.clickToButtonByClassName(driver, "search-button");
 		
 		log.info("Verify product contained keyword is displayed");
-		verifyTrue(searchPage.isProductDisplayed(MyAccountData.Seach.PRODUCT_SUB_CATE));
+		verifyTrue(searchPage.isProductDisplayed(SearchData.Seach.PRODUCT_SUB_CATE));
 	}
 	
 	@Test
@@ -136,25 +136,25 @@ public class Search extends BaseTest{
 		searchPage.openPageInFooterByName(driver, "Search");
 		
 		log.info("Input keyword to textbox");
-		searchPage.sendKeyToTextBoxByID(driver, MyAccountData.Seach.SEARCH_KEYWORD, "q");
+		searchPage.sendKeyToTextBoxByID(driver, SearchData.Seach.SEARCH_KEYWORD, "q");
 		
 		log.info("Click to advance checkbox");
 		searchPage.checkToCheckBoxOrRadioByID(driver, "advs");
 		
 		log.info("Select parent category");
-		searchPage.selectOptionByText(driver, MyAccountData.Seach.PARENT_CATEGORY, "cid");
+		searchPage.selectOptionByText(driver, SearchData.Seach.PARENT_CATEGORY, "cid");
 		
 		log.info("Check to sub category checkbox");
 		searchPage.checkToCheckBoxOrRadioByID(driver, "isc");
 		
 		log.info("Select manufacturer");
-		searchPage.selectOptionByText(driver, MyAccountData.Seach.INCORRECT_MANUFACTURER_CATE, "mid");
+		searchPage.selectOptionByText(driver, SearchData.Seach.INCORRECT_MANUFACTURER_CATE, "mid");
 		
 		log.info("Click to search button");
 		searchPage.clickToButtonByClassName(driver, "search-button");
 		
 		log.info("Verify no data message is displayed");
-		verifyTrue(searchPage.isErrorMessageDisplayed(MyAccountData.Seach.DATA_NO_EXISTED_MESSAGE));
+		verifyTrue(searchPage.isErrorMessageDisplayed(SearchData.Seach.DATA_NO_EXISTED_MESSAGE));
 	}
 	
 	@Test
@@ -163,25 +163,25 @@ public class Search extends BaseTest{
 		searchPage.openPageInFooterByName(driver, "Search");
 		
 		log.info("Input keyword to textbox");
-		searchPage.sendKeyToTextBoxByID(driver, MyAccountData.Seach.SEARCH_KEYWORD, "q");
+		searchPage.sendKeyToTextBoxByID(driver, SearchData.Seach.SEARCH_KEYWORD, "q");
 		
 		log.info("Click to advance checkbox");
 		searchPage.checkToCheckBoxOrRadioByID(driver, "advs");
 		
 		log.info("Select parent category");
-		searchPage.selectOptionByText(driver, MyAccountData.Seach.PARENT_CATEGORY, "cid");
+		searchPage.selectOptionByText(driver, SearchData.Seach.PARENT_CATEGORY, "cid");
 		
 		log.info("Check to sub category checkbox");
 		searchPage.checkToCheckBoxOrRadioByID(driver, "isc");
 		
 		log.info("Select manufacturer");
-		searchPage.selectOptionByText(driver, MyAccountData.Seach.CORRECT_MANUFACTURER_CATE, "mid");
+		searchPage.selectOptionByText(driver, SearchData.Seach.CORRECT_MANUFACTURER_CATE, "mid");
 		
 		log.info("Click to search button");
 		searchPage.clickToButtonByClassName(driver, "search-button");
 		
 		log.info("Verify product is displayed");
-		verifyTrue(searchPage.isProductDisplayed(MyAccountData.Seach.SEARCH));
+		verifyTrue(searchPage.isProductDisplayed(SearchData.Seach.SEARCH));
 	}
 	
 	@AfterClass

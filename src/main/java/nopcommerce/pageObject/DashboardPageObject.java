@@ -22,4 +22,9 @@ public class DashboardPageObject extends BasePage{
 		waitForElementInvisible(driver, DashboardPageUIs.CLOSE_BAR_NOTIFICATION);
 		
 	}
+
+	public ProductListPageObject clickToParentMenuByName(String menu) {
+		clickToElement(driver, DashboardPageUIs.PARENT_MENU, menu);
+		return PageGeneratorManager.getProductListPage(driver);
+	}
 }
