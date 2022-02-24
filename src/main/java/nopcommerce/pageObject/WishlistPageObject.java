@@ -21,4 +21,13 @@ public class WishlistPageObject extends BasePage {
 		return isDisplayedElement(driver, WishlistPageUIs.MESSAGE, message);
 	}
 
+	public boolean isProductAdded(String productName) {
+		return isDisplayedElement(driver, WishlistPageUIs.PRODUCT_NAME_COMPARE, productName);
+		
+	}
+	
+	public boolean isProductDisplayed(String productTitle) {
+		return isDisplayedElement(driver, WishlistPageUIs.PRODUCT_TITLE_RECENTLY_VIEWED, productTitle);
+		
+	}
 }

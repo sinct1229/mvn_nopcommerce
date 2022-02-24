@@ -12,7 +12,6 @@ import commons.BaseTest;
 import commons.GlobalConstants;
 import nopcommerce.pageObject.AddressPageObject;
 import nopcommerce.pageObject.CartPageObject;
-import nopcommerce.pageObject.ComparePageObject;
 import nopcommerce.pageObject.DashboardPageObject;
 import nopcommerce.pageObject.LoginPageObject;
 import nopcommerce.pageObject.PageGeneratorManager;
@@ -27,7 +26,6 @@ public class Wishlist extends BaseTest{
 	ProductDetailPageObject productDetailPage;
 	WishlistPageObject wishlistPage;
 	CartPageObject cartPage;
-	ComparePageObject comparePage;
 	
 	@Parameters({"browser", "appURL"})
 	@BeforeClass
@@ -118,7 +116,7 @@ public class Wishlist extends BaseTest{
 		dashboardPage = wishlistPage.openDashboardPage(driver);
 		
 		log.info("Open product detail");
-		dashboardPage.OpenProductDetail(WishlistData.PRODUCT_COMPARE_1);
+		dashboardPage.OpenProductDetail(WishlistData.PRODUCT_1);
 		productDetailPage = PageGeneratorManager.getProductDetailPage(driver);
 		
 		log.info("Click to Add to compare list button");
@@ -131,7 +129,7 @@ public class Wishlist extends BaseTest{
 		dashboardPage = wishlistPage.openDashboardPage(driver);
 		
 		log.info("Open product detail");
-		dashboardPage.OpenProductDetail(WishlistData.PRODUCT_COMPARE_2);
+		dashboardPage.OpenProductDetail(WishlistData.PRODUCT_2);
 		productDetailPage = PageGeneratorManager.getProductDetailPage(driver);
 		
 		log.info("Click to Add to compare list button");
@@ -141,13 +139,53 @@ public class Wishlist extends BaseTest{
 		productDetailPage.closeBarNotification();
 		
 		log.info("Open compare product list page");
-		comparePage = (ComparePageObject) productDetailPage.openPageInFooterByName(driver, "Compare products list");
+		wishlistPage =  (WishlistPageObject) productDetailPage.openPageInFooterByName(driver, "Compare products list");
 		
-		log.info("Verify " + WishlistData.PRODUCT_COMPARE_1 + " is added successfully");
-		verifyTrue(comparePage.isProductAdded(WishlistData.PRODUCT_COMPARE_1));
+		log.info("Verify " + WishlistData.PRODUCT_1 + " is added successfully");
+		verifyTrue(wishlistPage.isProductAdded(WishlistData.PRODUCT_1));
 		
-		log.info("Verify " + WishlistData.PRODUCT_COMPARE_2 + " is added successfully");
-		verifyTrue(comparePage.isProductAdded(WishlistData.PRODUCT_COMPARE_2));
+		log.info("Verify " + WishlistData.PRODUCT_2 + " is added successfully");
+		verifyTrue(wishlistPage.isProductAdded(WishlistData.PRODUCT_2));
+		
+	}
+	
+	@Test
+	public void Test_05_Recently_Viewed_Product() {
+		log.info("Open home page");
+		dashboardPage = wishlistPage.openDashboardPage(driver);
+		
+		log.info("Open product detail");
+		dashboardPage.OpenProductDetail(WishlistData.PRODUCT_1);
+		productDetailPage = PageGeneratorManager.getProductDetailPage(driver);
+		
+		log.info("Open home page");
+		dashboardPage = wishlistPage.openDashboardPage(driver);
+		
+		log.info("Open product detail");
+		dashboardPage.OpenProductDetail(WishlistData.PRODUCT_2);
+		productDetailPage = PageGeneratorManager.getProductDetailPage(driver);
+		
+		log.info("Open home page");
+		dashboardPage = wishlistPage.openDashboardPage(driver);
+		
+		log.info("Open product detail");
+		dashboardPage.OpenProductDetail(WishlistData.PRODUCT_3);
+		productDetailPage = PageGeneratorManager.getProductDetailPage(driver);
+		
+		log.info("Open home page");
+		dashboardPage = wishlistPage.openDashboardPage(driver);
+		
+		log.info("Open product detail");
+		dashboardPage.OpenProductDetail(WishlistData.PRODUCT_4);
+		productDetailPage = PageGeneratorManager.getProductDetailPage(driver);
+		
+		log.info("Open recently products viewed page");
+		wishlistPage =(WishlistPageObject) productDetailPage.openPageInFooterByName(driver, "Recently viewed products");
+		
+		log.info("Verify 3 products is displayed");
+		verifyTrue(wishlistPage.isProductDisplayed(WishlistData.PRODUCT_1));
+		verifyTrue(wishlistPage.isProductDisplayed(WishlistData.PRODUCT_3));
+		verifyTrue(wishlistPage.isProductDisplayed(WishlistData.PRODUCT_4));
 		
 	}
 	

@@ -316,9 +316,11 @@ public class BasePage {
 		case "Search":
 			return PageGeneratorManager.getSearchPage(driver);
 		case "Wishlist":
-		return PageGeneratorManager.getWishlistPage(driver);
+			return PageGeneratorManager.getWishlistPage(driver);
 		case "Compare products list":
-		return PageGeneratorManager.getComparePage(driver);
+			return PageGeneratorManager.getWishlistPage(driver);
+		case "Recently viewed products":
+			return PageGeneratorManager.getWishlistPage(driver);
 		default:
 			return PageGeneratorManager.getDashboardPage(driver);
 		}
