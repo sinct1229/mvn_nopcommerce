@@ -11,6 +11,8 @@ import com.nopcommerce.data.WishlistData;
 import commons.BaseTest;
 import commons.GlobalConstants;
 import nopcommerce.pageObject.AddressPageObject;
+import nopcommerce.pageObject.CartPageObject;
+import nopcommerce.pageObject.ComparePageObject;
 import nopcommerce.pageObject.DashboardPageObject;
 import nopcommerce.pageObject.LoginPageObject;
 import nopcommerce.pageObject.PageGeneratorManager;
@@ -24,6 +26,8 @@ public class Wishlist extends BaseTest{
 	AddressPageObject addressPage;
 	ProductDetailPageObject productDetailPage;
 	WishlistPageObject wishlistPage;
+	CartPageObject cartPage;
+	ComparePageObject comparePage;
 	
 	@Parameters({"browser", "appURL"})
 	@BeforeClass
@@ -68,16 +72,82 @@ public class Wishlist extends BaseTest{
 	}
 	
 	@Test
+	public void Test_02_Add_To_Cart() {
+		log.info("Click To checkbox add to cart");
+		wishlistPage.checkToCheckBoxOrRadioByName(driver, "addtocart");
+		
+		log.info("Click to add to cart button");
+		wishlistPage.clickToButtonByName(driver, "addtocartbutton");
+		
+		log.info("Move to Cart page");
+		cartPage = (CartPageObject) PageGeneratorManager.getCartPage(driver);
+		
+		log.info("Verify 'Shopping cart' is displayed");
+		verifyTrue(cartPage.isShoppingCartDisplayed());
+		
+		
+	}
+	
+	@Test
 	public void Test_03_Remove_From_Wishlist() {
+		
+		log.info("Open home page");
+		dashboardPage = wishlistPage.openDashboardPage(driver);
+		
+		log.info("Open product detail");
+		dashboardPage.OpenProductDetail(WishlistData.PRODUCT_NAME);
+		productDetailPage = PageGeneratorManager.getProductDetailPage(driver);
+		
+		log.info("Click to wishlist button");
+		productDetailPage.clickToButtonByClassName(driver, "add-to-wishlist-button");
 		
 		log.info("Open wishlist page");
 		wishlistPage = (WishlistPageObject) productDetailPage.openPageInFooterByName(driver, "Wishlist");
 		
 		log.info("Click to remove button");
-		wishlistPage.clickToButtonByClassName(driver, "removefromcart");
+		wishlistPage.clickToButtonByClassName(driver, "remove-btn");
 		
 		log.info("Verify The wishlist is empty! is displayed");
 		verifyTrue(wishlistPage.isMessageDisplayed(WishlistData.EMPTY_MESSAGE));
+		
+	}
+	
+	@Test
+	public void Test_04_Add_To_Compare() {
+		log.info("Open home page");
+		dashboardPage = wishlistPage.openDashboardPage(driver);
+		
+		log.info("Open product detail");
+		dashboardPage.OpenProductDetail(WishlistData.PRODUCT_COMPARE_1);
+		productDetailPage = PageGeneratorManager.getProductDetailPage(driver);
+		
+		log.info("Click to Add to compare list button");
+		productDetailPage.clickToButtonByClassName(driver, "add-to-compare-list-button");
+		
+		log.info("Close bar notification");
+		productDetailPage.closeBarNotification();
+		
+		log.info("Open home page");
+		dashboardPage = wishlistPage.openDashboardPage(driver);
+		
+		log.info("Open product detail");
+		dashboardPage.OpenProductDetail(WishlistData.PRODUCT_COMPARE_2);
+		productDetailPage = PageGeneratorManager.getProductDetailPage(driver);
+		
+		log.info("Click to Add to compare list button");
+		productDetailPage.clickToButtonByClassName(driver, "add-to-compare-list-button");
+		
+		log.info("Close bar notification");
+		productDetailPage.closeBarNotification();
+		
+		log.info("Open compare product list page");
+		comparePage = (ComparePageObject) productDetailPage.openPageInFooterByName(driver, "Compare products list");
+		
+		log.info("Verify " + WishlistData.PRODUCT_COMPARE_1 + " is added successfully");
+		verifyTrue(comparePage.isProductAdded(WishlistData.PRODUCT_COMPARE_1));
+		
+		log.info("Verify " + WishlistData.PRODUCT_COMPARE_2 + " is added successfully");
+		verifyTrue(comparePage.isProductAdded(WishlistData.PRODUCT_COMPARE_2));
 		
 	}
 	

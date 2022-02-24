@@ -13,6 +13,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import nopcommerce.pageObject.DashboardPageObject;
 import nopcommerce.pageObject.PageGeneratorManager;
 
 public class BasePage {
@@ -282,8 +283,15 @@ public class BasePage {
 	}
 
 	public void checkToCheckBoxOrRadioByID(WebDriver driver, String id) {
-		if( isChecked(driver, BasePageUIs.GENDER_CHECKBOX, id)!= true) {
-			clickToElement(driver, BasePageUIs.GENDER_CHECKBOX, id);
+		if( isChecked(driver, BasePageUIs.CHECKBOX_BY_ID, id)!= true) {
+			clickToElement(driver, BasePageUIs.CHECKBOX_BY_ID, id);
+		}
+		
+	}
+	
+	public void checkToCheckBoxOrRadioByName(WebDriver driver, String name) {
+		if( isChecked(driver, BasePageUIs.CHECKBOX_BY_NAME, name)!= true) {
+			clickToElement(driver, BasePageUIs.CHECKBOX_BY_NAME, name);
 		}
 		
 	}
@@ -307,13 +315,20 @@ public class BasePage {
 		switch (pageName) {
 		case "Search":
 			return PageGeneratorManager.getSearchPage(driver);
-
+		case "Wishlist":
+		return PageGeneratorManager.getWishlistPage(driver);
+		case "Compare products list":
+		return PageGeneratorManager.getComparePage(driver);
 		default:
 			return PageGeneratorManager.getDashboardPage(driver);
 		}
 		
 	}
 	
+	public DashboardPageObject openDashboardPage(WebDriver driver) {
+		clickToElement(driver, BasePageUIs.LOGO);
+		return PageGeneratorManager.getDashboardPage(driver);
+	}
 	
 
 

@@ -1,125 +1,36 @@
-[INFO ] [2022-02-21 01:41:13,403] Pre-condition: Step 1 - Open browser 'chrome' navigate to 'https://demo.nopcommerce.com/'
-[INFO ] [2022-02-21 01:41:17,233] Pre-condition: Step 2 - Open register page
-[INFO ] [2022-02-21 01:41:18,063] Test_01_Register_With_Empty_Data: Click on register button
-[INFO ] [2022-02-21 01:41:18,259] Test_01_Register_With_Empty_Data: Verify error message is dispaled in firstname field
-[INFO ] [2022-02-21 01:41:18,334]  -------------------------- PASSED -------------------------- 
-[INFO ] [2022-02-21 01:41:18,336] Test_01_Register_With_Empty_Data: Verify error message is dispaled in lastname field
-[INFO ] [2022-02-21 01:41:18,397]  -------------------------- PASSED -------------------------- 
-[INFO ] [2022-02-21 01:41:18,397] Test_01_Register_With_Empty_Data: Verify error message is dispaled in email field
-[INFO ] [2022-02-21 01:41:18,460]  -------------------------- PASSED -------------------------- 
-[INFO ] [2022-02-21 01:41:18,460] Test_01_Register_With_Empty_Data: Verify error message is dispaled in password field
-[INFO ] [2022-02-21 01:41:18,537]  -------------------------- PASSED -------------------------- 
-[INFO ] [2022-02-21 01:41:18,537] Test_01_Register_With_Empty_Data: Verify error message is dispaled in confirm password field
-[INFO ] [2022-02-21 01:41:18,601]  -------------------------- PASSED -------------------------- 
-[INFO ] [2022-02-21 01:41:18,747] Test_02_Register_With_Invalid_Email: Click on register button in header
-[INFO ] [2022-02-21 01:41:19,357] Test_02_Register_With_Invalid_Email: Check to female gender
-[INFO ] [2022-02-21 01:41:19,502] Test_02_Register_With_Invalid_Email: Input firstname
-[INFO ] [2022-02-21 01:41:19,631] Test_02_Register_With_Invalid_Email: Input lastname
-[INFO ] [2022-02-21 01:41:19,750] Test_02_Register_With_Invalid_Email: Select day
-[INFO ] [2022-02-21 01:41:19,869] Test_02_Register_With_Invalid_Email: Select month
-[INFO ] [2022-02-21 01:41:19,992] Test_02_Register_With_Invalid_Email: Select year
-[INFO ] [2022-02-21 01:41:20,082] Test_02_Register_With_Invalid_Email: Input invalid email123test
-[INFO ] [2022-02-21 01:41:20,201] Test_02_Register_With_Invalid_Email: Input company
-[INFO ] [2022-02-21 01:41:20,317] Test_02_Register_With_Invalid_Email: Input password
-[INFO ] [2022-02-21 01:41:20,445] Test_02_Register_With_Invalid_Email: Input confirm password
-[INFO ] [2022-02-21 01:41:20,567] Test_02_Register_With_Invalid_Email: Click on register button
-[INFO ] [2022-02-21 01:41:20,764] Test_02_Register_With_Invalid_Email: Verify Wrong email is displayed
-[INFO ] [2022-02-21 01:41:20,833]  -------------------------- PASSED -------------------------- 
-[INFO ] [2022-02-21 01:41:20,851] Test_03_Register_Success: Click on register button in header
-[INFO ] [2022-02-21 01:41:21,390] Test_03_Register_Success: Check to female gender
-[INFO ] [2022-02-21 01:41:21,533] Test_03_Register_Success: Input firstname
-[INFO ] [2022-02-21 01:41:21,649] Test_03_Register_Success: Input lastname
-[INFO ] [2022-02-21 01:41:21,767] Test_03_Register_Success: Select day
-[INFO ] [2022-02-21 01:41:21,865] Test_03_Register_Success: Select month
-[INFO ] [2022-02-21 01:41:21,955] Test_03_Register_Success: Select year
-[INFO ] [2022-02-21 01:41:22,056] Test_03_Register_Success: Input email
-[INFO ] [2022-02-21 01:41:22,195] Test_03_Register_Success: Input company
-[INFO ] [2022-02-21 01:41:22,310] Test_03_Register_Success: Input password
-[INFO ] [2022-02-21 01:41:22,436] Test_03_Register_Success: Input confirm password
-[INFO ] [2022-02-21 01:41:22,561] Test_03_Register_Success: Click on register button
-[INFO ] [2022-02-21 01:41:23,634] Test_03_Register_Success: Verify Your registration completed is displayed
-[INFO ] [2022-02-21 01:41:23,663]  -------------------------- PASSED -------------------------- 
-[INFO ] [2022-02-21 01:41:23,663] Test_03_Register_Success: Click on log out button
-[INFO ] [2022-02-21 01:41:24,642] Test_04_Register_With_Existed_Email: Click on register button in header
-[INFO ] [2022-02-21 01:41:25,225] Test_04_Register_With_Existed_Email: Check to female gender
-[INFO ] [2022-02-21 01:41:25,370] Test_04_Register_With_Existed_Email: Input firstname
-[INFO ] [2022-02-21 01:41:25,486] Test_04_Register_With_Existed_Email: Input lastname
-[INFO ] [2022-02-21 01:41:25,597] Test_04_Register_With_Existed_Email: Select day
-[INFO ] [2022-02-21 01:41:25,686] Test_04_Register_With_Existed_Email: Select month
-[INFO ] [2022-02-21 01:41:25,780] Test_04_Register_With_Existed_Email: Select year
-[INFO ] [2022-02-21 01:41:25,892] Test_04_Register_With_Existed_Email: Input existed email
-[INFO ] [2022-02-21 01:41:26,019] Test_04_Register_With_Existed_Email: Input company
-[INFO ] [2022-02-21 01:41:26,133] Test_04_Register_With_Existed_Email: Input password
-[INFO ] [2022-02-21 01:41:26,249] Test_04_Register_With_Existed_Email: Input confirm password
-[INFO ] [2022-02-21 01:41:26,374] Test_04_Register_With_Existed_Email: Click on register button
-[INFO ] [2022-02-21 01:41:26,999] Test_04_Register_With_Existed_Email: Verify The specified email already exists is displayed
-[INFO ] [2022-02-21 01:41:27,033]  -------------------------- PASSED -------------------------- 
-[INFO ] [2022-02-21 01:41:27,038] Test_05_Register_With_Invalid_Password: Click on register button in header
-[INFO ] [2022-02-21 01:41:27,542] Test_05_Register_With_Invalid_Password: Check to female gender
-[INFO ] [2022-02-21 01:41:27,543] Test_05_Register_With_Invalid_Password: Input firstname
-[INFO ] [2022-02-21 01:41:27,685] Test_05_Register_With_Invalid_Password: Input firstname
-[INFO ] [2022-02-21 01:41:27,806] Test_05_Register_With_Invalid_Password: Input lastname
-[INFO ] [2022-02-21 01:41:27,932] Test_05_Register_With_Invalid_Password: Select day
-[INFO ] [2022-02-21 01:41:28,036] Test_05_Register_With_Invalid_Password: Select month
-[INFO ] [2022-02-21 01:41:28,123] Test_05_Register_With_Invalid_Password: Select year
-[INFO ] [2022-02-21 01:41:28,219] Test_05_Register_With_Invalid_Password: Input email
-[INFO ] [2022-02-21 01:41:28,347] Test_05_Register_With_Invalid_Password: Input company
-[INFO ] [2022-02-21 01:41:28,458] Test_05_Register_With_Invalid_Password: Input invalid password123pa
-[INFO ] [2022-02-21 01:41:28,572] Test_05_Register_With_Invalid_Password: Input confirm password
-[INFO ] [2022-02-21 01:41:28,698] Test_05_Register_With_Invalid_Password: Click on register button
-[INFO ] [2022-02-21 01:41:28,900] Test_05_Register_With_Invalid_Password: Verify Password must meet the following rules: must have at least 6 characters is displayed
-[INFO ] [2022-02-21 01:41:28,968]  -------------------------- PASSED -------------------------- 
-[INFO ] [2022-02-21 01:41:29,030]  -------------------------- PASSED -------------------------- 
-[INFO ] [2022-02-21 01:41:29,034] Test_06_Register_With_Unmatch_Password_CPassword: Click on register button in header
-[INFO ] [2022-02-21 01:41:29,589] Test_06_Register_With_Unmatch_Password_CPassword: Check to female gender
-[INFO ] [2022-02-21 01:41:29,750] Test_06_Register_With_Unmatch_Password_CPassword: Input firstname
-[INFO ] [2022-02-21 01:41:29,867] Test_06_Register_With_Unmatch_Password_CPassword: Input lastname
-[INFO ] [2022-02-21 01:41:29,993] Test_05_Register_With_Invalid_Password: Select day
-[INFO ] [2022-02-21 01:41:30,093] Test_05_Register_With_Invalid_Password: Select month
-[INFO ] [2022-02-21 01:41:30,185] Test_05_Register_With_Invalid_Password: Select year
-[INFO ] [2022-02-21 01:41:30,279] Test_06_Register_With_Unmatch_Password_CPassword: Input email
-[INFO ] [2022-02-21 01:41:30,407] Test_06_Register_With_Unmatch_Password_CPassword: Input company
-[INFO ] [2022-02-21 01:41:30,521] Test_06_Register_With_Unmatch_Password_CPassword: Input passwordTiki@1
-[INFO ] [2022-02-21 01:41:30,647] Test_06_Register_With_Unmatch_Password_CPassword: Input orther confirm passwordtiki@456
-[INFO ] [2022-02-21 01:41:30,777] Test_06_Register_With_Unmatch_Password_CPassword: Click on register button
-[INFO ] [2022-02-21 01:41:30,962] Test_06_Register_With_Unmatch_Password_CPassword: Verify The password and confirmation password do not match. is displayed
-[INFO ] [2022-02-21 01:41:31,030]  -------------------------- PASSED -------------------------- 
-[INFO ] [2022-02-21 01:41:31,034] OS name = windows 10
-[INFO ] [2022-02-21 01:41:31,034] Driver instance name = windows 10
-[INFO ] [2022-02-21 01:41:31,829] Pre-condition: Step 1 - Open browser 'chrome' navigate to 'https://demo.nopcommerce.com/'
-[INFO ] [2022-02-21 01:41:34,922] Pre-condition: Step 2 - Open login page
-[INFO ] [2022-02-21 01:41:35,578] Test_01_Login_With_Empty_Data: Click to login button
-[INFO ] [2022-02-21 01:41:35,764] Test_01_Login_With_Empty_Data: Verify error message is displayed
-[INFO ] [2022-02-21 01:41:35,820]  -------------------------- PASSED -------------------------- 
-[INFO ] [2022-02-21 01:41:35,826] Test_02_Login_With_Invalid_Email: Input invalid email to textbox
-[INFO ] [2022-02-21 01:41:35,931] Test_02_Login_With_Invalid_Email: Click to login button
-[INFO ] [2022-02-21 01:41:36,091] Test_02_Login_With_Invalid_Email: Verify error message is displayed
-[INFO ] [2022-02-21 01:41:36,151]  -------------------------- PASSED -------------------------- 
-[INFO ] [2022-02-21 01:41:36,170] Test_03_Login_With_No_Existed_Email: Input no-existed email to textbox
-[INFO ] [2022-02-21 01:41:36,293] Test_03_Login_With_No_Existed_Email: Input password to textbox
-[INFO ] [2022-02-21 01:41:36,407] Test_03_Login_With_No_Existed_Email: Click to login button
-[INFO ] [2022-02-21 01:41:37,085] Test_03_Login_With_No_Existed_Email: Verify error message is displayed
-[INFO ] [2022-02-21 01:41:37,121]  -------------------------- PASSED -------------------------- 
-[INFO ] [2022-02-21 01:41:37,148]  -------------------------- PASSED -------------------------- 
-[INFO ] [2022-02-21 01:41:37,152] Test_04_Login_With_Empty_Password: Input email to textbox
-[INFO ] [2022-02-21 01:41:37,270] Test_04_Login_With_Empty_Password: Click to login button
-[INFO ] [2022-02-21 01:41:37,884] Test_04_Login_With_Empty_Password: Verify error message is displayed
-[INFO ] [2022-02-21 01:41:37,915]  -------------------------- PASSED -------------------------- 
-[INFO ] [2022-02-21 01:41:37,947]  -------------------------- PASSED -------------------------- 
-[INFO ] [2022-02-21 01:41:37,951] Test_05_Login_With_Invalid_Password: Input email to textbox
-[INFO ] [2022-02-21 01:41:38,072] Test_05_Login_With_Invalid_Password: Input password to textbox
-[INFO ] [2022-02-21 01:41:38,190] Test_05_Login_With_Invalid_Password: Click to login button
-[INFO ] [2022-02-21 01:41:38,826] Test_05_Login_With_Invalid_Password: Verify error message is displayed
-[INFO ] [2022-02-21 01:41:38,857]  -------------------------- PASSED -------------------------- 
-[INFO ] [2022-02-21 01:41:38,888]  -------------------------- PASSED -------------------------- 
-[INFO ] [2022-02-21 01:41:38,893] Test_06_Login_Success: Input email to textbox
-[INFO ] [2022-02-21 01:41:39,011] Test_06_Login_Success: Input password to textbox
-[INFO ] [2022-02-21 01:41:39,133] Test_06_Login_Success: Click to login button
-[INFO ] [2022-02-21 01:41:40,151] Test_06_Login_Success: Verify log out text is displayed
-[INFO ] [2022-02-21 01:41:40,211]  -------------------------- PASSED -------------------------- 
-[INFO ] [2022-02-21 01:41:40,211] Get cookies
-[INFO ] [2022-02-21 01:41:40,227] OS name = windows 10
-[INFO ] [2022-02-21 01:41:40,228] Driver instance name = windows 10
- ] [2022-02-21 01:41:40,211] Get cookies
-[INFO ] [2022-02-21 01:41:40,227] OS name = windows 10
-[INFO ] [2022-02-21 01:41:40,228] Driver instance name = windows 10
+[INFO ] [2022-02-23 23:15:17,132] Pre-condition: Step 1 - Open browser 'chrome' navigate to 'https://demo.nopcommerce.com/'
+[INFO ] [2022-02-23 23:15:22,181] Pre-condition: Step 2 - Open login page
+[INFO ] [2022-02-23 23:15:23,008] Test_01_Login_With_Empty_Data: Click to login button
+[INFO ] [2022-02-23 23:15:23,218] Test_01_Login_With_Empty_Data: Verify error message is displayed
+[INFO ] [2022-02-23 23:15:23,305]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-02-23 23:15:23,464] Test_02_Login_With_Invalid_Email: Input invalid email to textbox
+[INFO ] [2022-02-23 23:15:23,610] Test_02_Login_With_Invalid_Email: Click to login button
+[INFO ] [2022-02-23 23:15:23,777] Test_02_Login_With_Invalid_Email: Verify error message is displayed
+[INFO ] [2022-02-23 23:15:23,841]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-02-23 23:15:23,866] Test_03_Login_With_No_Existed_Email: Input no-existed email to textbox
+[INFO ] [2022-02-23 23:15:24,019] Test_03_Login_With_No_Existed_Email: Input password to textbox
+[INFO ] [2022-02-23 23:15:24,138] Test_03_Login_With_No_Existed_Email: Click to login button
+[INFO ] [2022-02-23 23:15:24,748] Test_03_Login_With_No_Existed_Email: Verify error message is displayed
+[INFO ] [2022-02-23 23:15:24,794]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-02-23 23:15:24,823]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-02-23 23:15:24,829] Test_04_Login_With_Empty_Password: Input email to textbox
+[INFO ] [2022-02-23 23:15:24,978] Test_04_Login_With_Empty_Password: Click to login button
+[INFO ] [2022-02-23 23:15:25,604] Test_04_Login_With_Empty_Password: Verify error message is displayed
+[INFO ] [2022-02-23 23:15:25,646]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-02-23 23:15:25,675]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-02-23 23:15:25,681] Test_05_Login_With_Invalid_Password: Input email to textbox
+[INFO ] [2022-02-23 23:15:25,800] Test_05_Login_With_Invalid_Password: Input password to textbox
+[INFO ] [2022-02-23 23:15:25,927] Test_05_Login_With_Invalid_Password: Click to login button
+[INFO ] [2022-02-23 23:15:26,503] Test_05_Login_With_Invalid_Password: Verify error message is displayed
+[INFO ] [2022-02-23 23:15:26,537]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-02-23 23:15:26,566]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-02-23 23:15:26,570] Test_06_Login_Success: Input email to textbox
+[INFO ] [2022-02-23 23:15:26,700] Test_06_Login_Success: Input password to textbox
+[INFO ] [2022-02-23 23:15:26,824] Test_06_Login_Success: Click to login button
+[INFO ] [2022-02-23 23:15:27,858] Test_06_Login_Success: Verify log out text is displayed
+[INFO ] [2022-02-23 23:15:27,912]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-02-23 23:15:27,915] Get cookies
+[INFO ] [2022-02-23 23:15:27,954] OS name = windows 10
+[INFO ] [2022-02-23 23:15:27,954] Driver instance name = windows 10
+[INFO ] [2022-02-23 23:15:27,954] OS name = windows 10
+[INFO ] [2022-02-23 23:15:27,954] Driver instance name = windows 10
