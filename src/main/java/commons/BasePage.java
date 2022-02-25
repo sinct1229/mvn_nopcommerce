@@ -13,6 +13,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import nopcommerce.admin.pageUI.HomePageUIs;
 import nopcommerce.pageObject.DashboardPageObject;
 import nopcommerce.pageObject.PageGeneratorManager;
 
@@ -123,6 +124,10 @@ public class BasePage {
 
 	public String getValueOfElement(WebDriver driver, String locator, String... params) {
 		return findElementByXpath(driver, getDynamicLocator(locator, params)).getAttribute("value");
+	}
+	
+	public String getElementAttribute(WebDriver driver, String locator, String attributeName, String... params) {
+		return findElementByXpath(driver, getDynamicLocator(locator, params)).getAttribute(attributeName);
 	}
 	
 	public boolean isChecked(WebDriver driver, String locator) {
@@ -333,8 +338,18 @@ public class BasePage {
 	}
 	
 
-
-
+	// ---------------------------------Nopcommerce admin---------------------------
+	public BasePage openChildMenu(WebDriver driver, String subMenu) {
+		clickToElement(driver, HomePageUIs.SUB_MENU, subMenu);
+		switch (subMenu) {
+		case "Products":
+			return nopcommerce.admin.pageObject.PageGeneratorManager.getProductPage(driver);
+		case "Customers":
+			return nopcommerce.admin.pageObject.PageGeneratorManager.getCustomerPage(driver);
+		default:
+			return nopcommerce.admin.pageObject.PageGeneratorManager.getHomePage(driver);
+		}
+	}
 
 
 

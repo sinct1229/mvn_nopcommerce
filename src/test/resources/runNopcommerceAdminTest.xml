@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="nopcommerce admin">
+	<parameter name="appURL"
+		value="https://admin-demo.nopcommerce.com/login?ReturnUrl=/admin/"></parameter>
+	<parameter name="browser" value="chrome"></parameter>
+	<test name="run on Chrome">
+		<classes>
+		<class name = "com.nopcommerce.admin.Search"></class>
+		</classes>
+	</test>
+</suite>
