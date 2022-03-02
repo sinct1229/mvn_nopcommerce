@@ -86,6 +86,9 @@ public class Customer extends BaseTest{
 	
 	@Test
 	public void Test_02_Seach_Customer_Email() {
+		log.info("Refresh page");
+		customerPage.refreshCurrentPage(driver);
+		
 		log.info("Input keyword to searchbox");
 		customerPage.sendKeyToTextBoxByID(driver, CustomerData.EMAIL, "SearchEmail");
 		
@@ -101,6 +104,9 @@ public class Customer extends BaseTest{
 	
 	@Test
 	public void Test_03_Search_Firstname_Lastname() {
+		log.info("Refresh page");
+		customerPage.refreshCurrentPage(driver);
+		
 		log.info("Input keyword to searchbox");
 		customerPage.sendKeyToTextBoxByID(driver, CustomerData.FIRST_NAME, "SearchFirstName");
 		
@@ -111,7 +117,53 @@ public class Customer extends BaseTest{
 		customerPage.clickToButtonByClassName(driver, "btn-search");
 		
 		log.info("Verify only one customer is displayed");
-		verifyTrue(customerPage.isCustomerDisplayed(L));
+		verifyTrue(customerPage.isCustomerDisplayed(CustomerData.FIRST_NAME +" " + CustomerData.LAST_NAME));
+	}
+	
+	@Test
+	public void Test_04_Search_With_Company() {
+		log.info("Refresh page");
+		customerPage.refreshCurrentPage(driver);
+		
+		log.info("Input keyword to searchbox");
+		customerPage.sendKeyToTextBoxByID(driver, CustomerData.COMPANY, "SearchCompany");
+		
+		log.info("Click search button");
+		customerPage.clickToButtonByClassName(driver, "btn-search");
+		
+		log.info("Verify only one customer is displayed");
+		verifyTrue(customerPage.isCustomerDisplayed(CustomerData.COMPANY));
+	}
+	
+	
+	@Test
+	public void Test_05_Search_With_Full_Data() {
+		log.info("Refresh page");
+		customerPage.refreshCurrentPage(driver);
+		
+		log.info("Input email to searchbox");
+		customerPage.sendKeyToTextBoxByID(driver, CustomerData.EMAIL, "SearchEmail");
+		
+		log.info("Input first name to searchbox");
+		customerPage.sendKeyToTextBoxByID(driver, CustomerData.FIRST_NAME, "SearchFirstName");
+		
+		log.info("Input last name to searchbox");
+		customerPage.sendKeyToTextBoxByID(driver, CustomerData.LAST_NAME, "SearchLastName");
+		
+		log.info("select month");
+		customerPage.selectOptionByText(driver, CustomerData.MONTH, "SearchMonthOfBirth");
+		
+		log.info("select day");
+		customerPage.selectOptionByText(driver, CustomerData.DAY, "SearchDayOfBirth");
+		
+		log.info("Input company to searchbox");
+		customerPage.sendKeyToTextBoxByID(driver, CustomerData.COMPANY, "SearchCompany");
+		
+		log.info("Click search button");
+		customerPage.clickToButtonByClassName(driver, "btn-search");
+		
+		log.info("Verify only one customer is displayed");
+		verifyTrue(customerPage.isCustomerDisplayed(CustomerData.EMAIL));
 	}
 	
 	

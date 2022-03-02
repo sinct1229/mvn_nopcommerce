@@ -27,8 +27,8 @@ public class CustomerPageObject extends BasePage{
 		return isDisplayedElement(driver, CustomerPageUIs.SUCCESS__ALERT);
 	}
 
-	public boolean isCustomerDisplayed(String email) {
-		return isDisplayedElement(driver, CustomerPageUIs.EMAIL_IN_TABLE, email);
+	public boolean isCustomerDisplayed(String string) {
+		return isDisplayedElement(driver, CustomerPageUIs.COLUMN_TABLE, string);
 	}
 	
 	
