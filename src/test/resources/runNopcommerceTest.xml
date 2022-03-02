@@ -6,17 +6,17 @@
 	<parameter name="browser" value="chrome"></parameter>
 	<test name="run on Chrome">
 		<classes>
-		<!-- <class name = "com.nopcommerce.authentication.Register"></class> -->
+		<class name = "com.nopcommerce.authentication.Register"></class>
 		<class name = "com.nopcommerce.authentication.Login"></class>
-		<!-- <class name = "com.nopcommerce.myAccount.CustomerInfo"></class>
-		<class name = "com.nopcommerce.myAccount.Addresses"></class> -->
-		<!-- <class name = "com.nopcommerce.myAccount.Review"></class> -->
-		<!-- <class name = "com.nopcommerce.myAccount.ChangePassword"></class>
+		<class name = "com.nopcommerce.myAccount.CustomerInfo"></class>
+		<class name = "com.nopcommerce.myAccount.Addresses"></class>
+		<class name = "com.nopcommerce.myAccount.Review"></class>
 		<class name = "com.nopcommerce.search.Search"></class>
 		<class name = "com.nopcommerce.sort.Sort"></class>
-		<class name = "com.nopcommerce.sort.Paging"></class> -->
-		<!-- <class name = "com.nopcommerce.wishlist.Wishlist"></class> -->
+		<class name = "com.nopcommerce.sort.Paging"></class>
+		<class name = "com.nopcommerce.wishlist.Wishlist"></class>
 		<class name = "com.nopcommerce.order.Order"></class>
+		<class name = "com.nopcommerce.myAccount.ChangePassword"></class>
 		</classes>
 	</test>
 </suite> 

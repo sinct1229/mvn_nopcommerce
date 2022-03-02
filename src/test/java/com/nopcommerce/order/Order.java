@@ -84,6 +84,6 @@ public class Order extends BaseTest{
 	
 	@AfterClass
 	public void afterClass() {
-		
+		closeBrowserAndDriver();
 	}
 }

@@ -96,9 +96,6 @@ public class CustomerInfo extends BaseTest{
 		log.info("Test_01_Update_Customer_Info_Success: Verify Year is updated successfully");
 		verifyEquals(customerInfoPage.getValueOfFieldByName("DateOfBirthYear"), MyAccountData.Customer.YEAR);
 		
-		log.info("Test_01_Update_Customer_Info_Success: Verify Email is updated successfully");
-		verifyEquals(customerInfoPage.getValueOfFieldByID("Email"), GlobalConstants.NEW_EMAIL);
-		
 		log.info("Test_01_Update_Customer_Info_Success: Verify Company is updated successfully");
 		verifyEquals(customerInfoPage.getValueOfFieldByID("Company"), MyAccountData.Customer.COMPANY);
 	}
