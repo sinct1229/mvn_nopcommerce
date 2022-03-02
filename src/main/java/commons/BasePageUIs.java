@@ -16,4 +16,7 @@ public class BasePageUIs {
 	public static final String TEXTAREA = "//textarea[@id = '%s']";
 	public static final String CHECKBOX_BY_NAME = "//input[@name = '%s']";
 	public static final String LOGO = "//div[@class = 'header-logo']";
+	
+	
+	public static final String ADMIN_ADD_NEW_BUTTON = "//h1[normalize-space() = '%s']/following-sibling::div[@class = 'float-right']/a";
 }

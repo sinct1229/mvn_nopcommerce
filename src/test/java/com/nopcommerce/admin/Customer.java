@@ -6,6 +6,8 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+import com.nopcommerce.adminData.CustomerData;
+
 import commons.BaseTest;
 import commons.GlobalConstants;
 import nopcommerce.admin.pageObject.CustomerPageObject;
@@ -41,39 +43,81 @@ public class Customer extends BaseTest{
 	@Test
 	public void Test_01_Create_Customer() {
 		log.info("Click to Add New button");
-		customerPage.clickToAddNewButton();
+		customerPage.clickToAddNewButton("Customers");
 		
 		log.info("Input email");
+		customerPage.sendKeyToTextBoxByID(driver, CustomerData.EMAIL, "Email");
 		
 		
 		log.info("Input password");
+		customerPage.sendKeyToTextBoxByID(driver, CustomerData.PASSWORD, "Password");
 		
 		
 		log.info("Input first name");
+		customerPage.sendKeyToTextBoxByID(driver, CustomerData.FIRST_NAME, "FirstName");
 		
-		
-		log.info("Input class name");
-		
+		log.info("Input last name");
+		customerPage.sendKeyToTextBoxByID(driver, CustomerData.LAST_NAME, "LastName");
 		
 		log.info("Select gender");
-		
-		
-		log.info("Select day");
+		customerPage.checkToCheckBoxOrRadioByID(driver, "Gender_Female");
 		
 		
 		log.info("Input day of birth");
-		
+		customerPage.sendKeyToTextBoxByID(driver, CustomerData.DATE_OF_BIRTH, "DateOfBirth");
 		
 		log.info("Input company name");
-		
+		customerPage.sendKeyToTextBoxByID(driver, CustomerData.COMPANY, "Company");
 		
 		log.info("Select customer role");
+		customerPage.selectCustomerRole(CustomerData.CUSTOMER_ROLE);
 		
 		
 		log.info("Input admin comment");
+		customerPage.sendKeyToTextAreaByID(driver, CustomerData.ADMIN_COMMENT, "AdminComment");
 		
+		log.info("Click Save button");
+		customerPage.clickToButtonByName(driver, "save");
+		
+		log.info("Verify create customer successfully");
+		verifyTrue(customerPage.isAlertSuccessDisplayed());
 		
 	}
+	
+	@Test
+	public void Test_02_Seach_Customer_Email() {
+		log.info("Input keyword to searchbox");
+		customerPage.sendKeyToTextBoxByID(driver, CustomerData.EMAIL, "SearchEmail");
+		
+		
+		log.info("Click search button");
+		customerPage.clickToButtonByClassName(driver, "btn-search");
+		
+		
+		log.info("Verify only one customer is displayed");
+		verifyTrue(customerPage.isCustomerDisplayed(CustomerData.EMAIL));
+		
+	}
+	
+	@Test
+	public void Test_03_Search_Firstname_Lastname() {
+		log.info("Input keyword to searchbox");
+		customerPage.sendKeyToTextBoxByID(driver, CustomerData.FIRST_NAME, "SearchFirstName");
+		
+		log.info("Input keyword to searchbox");
+		customerPage.sendKeyToTextBoxByID(driver, CustomerData.LAST_NAME, "SearchLastName");
+		
+		log.info("Click search button");
+		customerPage.clickToButtonByClassName(driver, "btn-search");
+		
+		log.info("Verify only one customer is displayed");
+		verifyTrue(customerPage.isCustomerDisplayed(L));
+	}
+	
+	
+	
+	
+	
 	@AfterClass
 	public void afterClass() {
 		
