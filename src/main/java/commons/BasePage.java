@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Cookie;
 import org.openqa.selenium.JavascriptExecutor;
@@ -22,6 +23,7 @@ public class BasePage {
 	private WebDriverWait explicit;
 	Select select;
 	JavascriptExecutor jE;
+	Alert alert;
 	
 	public By getByXpath(String locator) {
 		return By.xpath(locator);
@@ -255,6 +257,17 @@ public class BasePage {
 	
 	public void refreshCurrentPage(WebDriver driver) {
 		driver.navigate().refresh();
+	}
+	
+	public Alert waitAlertIsPresent(WebDriver driver) {
+		explicit = new WebDriverWait(driver, GlobalConstants.LONG_TIME);
+		return explicit.until(ExpectedConditions.alertIsPresent());
+
+	}
+	
+	public void acceptAlert(WebDriver driver) {
+		alert = waitAlertIsPresent(driver);
+		alert.accept();
 	}
 
 	// --------------------

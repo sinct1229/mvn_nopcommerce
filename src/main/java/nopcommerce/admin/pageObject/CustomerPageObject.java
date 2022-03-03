@@ -57,6 +57,11 @@ public class CustomerPageObject extends BasePage{
 		clickToElement(driver, CustomerPageUIs.DELETE_ADDRESS_BUTTON, email);
 		
 	}
+
+	public void acceptAlert() {
+		acceptAlert();
+		
+	}
 	
 	
 	

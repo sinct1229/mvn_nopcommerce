@@ -358,6 +358,9 @@ public class Customer extends BaseTest{
 		log.info("Click to Delete button");
 		customerPage.clickToDeleteAddressButton(CustomerData.EditAddress.EDIT_EMAIL);
 		
+		log.info("Accept alert");
+		customerPage.acceptAlert();
+		
 		log.info("Verify success message is displayed");
 		customerPage.isAlertSuccessDisplayed();
 	}
