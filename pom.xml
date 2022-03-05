@@ -3,7 +3,7 @@
   <groupId>bankguru</groupId>
   <artifactId>bankguru</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <name>bankguru</name>
+  <name>nopcommerce</name>
   
 
 	<properties>
@@ -155,7 +155,8 @@
 				<configuration>
 					<!-- Run TestNG xml file -->
 					<suiteXmlFiles>
-						<file>src/test/resources/runUserGuruTestcases.xml</file>
+						<file>src/test/resources/runNopcommerceTest.xml</file>
+						<file>src/test/resources/runNopcommerceAdminTest.xml</file>
 					</suiteXmlFiles>
 
 					<!-- Argument -->
