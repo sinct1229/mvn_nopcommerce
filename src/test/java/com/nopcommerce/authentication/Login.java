@@ -106,7 +106,7 @@ public class Login extends BaseTest{
 		loginPage.clickToButtonByClassName(driver, "login-button");
 		
 		log.info("Test_05_Login_With_Invalid_Password: Verify error message is displayed");
-		verifyTrue(loginPage.isSummaryErrorMessageDisplayed(loginData.getInvalidPassword()));
+		verifyTrue(loginPage.isSummaryErrorMessageDisplayed(loginData.getSummaryErrorMessage()));
 		verifyTrue(loginPage.isSummaryErrorMessageDisplayed(loginData.getInvalidPasswordMessage()));
 	}
 	

@@ -273,8 +273,8 @@ public class Register extends BaseTest {
 		log.info("Test_06_Register_With_Unmatch_Password_CPassword: Click on register button");
 		registerPage.clickToButtonByName(getDriver(), "register-button");
 		
-		log.info("Test_06_Register_With_Unmatch_Password_CPassword: Verify " + registerData.getConfirmPasswordErrorMessage() + " is displayed");
-		verifyTrue(registerPage.isErrorMessageDisplayedByText(registerData.getConfirmPasswordErrorMessage()));
+		log.info("Test_06_Register_With_Unmatch_Password_CPassword: Verify " + registerData.getPasswordUnmatchErrorMessage() + " is displayed");
+		verifyTrue(registerPage.isErrorMessageDisplayedByText(registerData.getPasswordUnmatchErrorMessage()));
 	}
 	
 	
