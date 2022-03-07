@@ -72,9 +72,6 @@ public class CustomerInfo extends BaseTest{
 		log.info("Test_01_Update_Customer_Info_Success: Select year");
 		customerInfoPage.selectOptionByText(getDriver(), MyAccountData.Customer.YEAR, "DateOfBirthYear");
 		
-		log.info("Test_01_Update_Customer_Info_Success: Input email");
-		customerInfoPage.sendKeyToTextBoxByID(getDriver(), GlobalConstants.NEW_EMAIL, "Email");
-		
 		log.info("Test_01_Update_Customer_Info_Success: Input company");
 		customerInfoPage.sendKeyToTextBoxByID(getDriver(), MyAccountData.Customer.COMPANY, "Company");
 		
