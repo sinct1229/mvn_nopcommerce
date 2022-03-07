@@ -1,6 +1,7 @@
 package commons;
 
 public class GlobalConstants {
+	public static final String PROJECT_PATH= System.getProperty("user.dir");
 	public static final int LONG_TIME = 20;
 	public static final int SHORT_TIME = 5;
 	public static final String EMAIL = "sinct12@gmail.com";

@@ -1,10 +1,15 @@
 package com.nopcommerce.myAccount;
 
+import java.io.IOException;
+
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
+
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.databind.JsonMappingException;
 import com.nopcommerce.data.LoginData;
 import com.nopcommerce.data.MyAccountData;
 
@@ -51,7 +56,7 @@ public class ChangePassword extends BaseTest{
 	}
 	
 	@Test
-	public void Test_01_Change_Password_Successfully() {
+	public void Test_01_Change_Password_Successfully() throws JsonParseException, JsonMappingException, IOException {
 		log.info("Input old password to textbox");
 		changePasswordPage.sendKeyToTextBoxByID(driver, GlobalConstants.PASSWORD, "OldPassword");
 		
@@ -89,8 +94,8 @@ public class ChangePassword extends BaseTest{
 		loginPage.clickToButtonByClassName(driver, "login-button");
 		
 		log.info("Verify login fail");
-		verifyTrue(loginPage.isSummaryErrorMessageDisplayed(LoginData.ErrorMessage.SUMMARY_ERROR));
-		verifyTrue(loginPage.isSummaryErrorMessageDisplayed(LoginData.ErrorMessage.INVALID_PASSWORD));
+		verifyTrue(loginPage.isSummaryErrorMessageDisplayed(LoginData.getLoginData().getSummaryErrorMessage()));
+		verifyTrue(loginPage.isSummaryErrorMessageDisplayed(LoginData.getLoginData().getInvalidPasswordMessage()));
 		
 		log.info("Input email");
 		loginPage.sendKeyToTextBoxByID(driver, GlobalConstants.EMAIL, "Email");

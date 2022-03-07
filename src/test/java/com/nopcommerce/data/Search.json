@@ -1,0 +1,14 @@
+{
+"searchEmptyMessage":"Search term minimum length is 3 characters",
+"dataNoExisted":"sintestS",
+"dataNoExistedMessage":"No products were found that matched your criteria.",
+"searchLike":"macbook",
+"productLike":"Apple MacBook Pro 13-inch",
+"search":"Apple MacBook Pro 13-inch",
+"searchKeyword":"Apple Macbook Pro",
+"parentCategory":"Computers",
+"productSubCate":"Apple MacBook Pro 13-inch",
+"incorrectManufacturerCate":"HP",
+"correctManufacturerCate":"Apple"
+
+}

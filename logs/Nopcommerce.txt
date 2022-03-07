@@ -1,0 +1,43 @@
+[INFO ] [2022-03-07 23:44:26,285] Pre-condition: Step 1 - Open browser 'chrome' navigate to 'https://demo.nopcommerce.com/'
+[INFO ] [2022-03-07 23:44:31,908] Pre-condition: Step 2 - Open register page
+[INFO ] [2022-03-07 23:44:32,743] Test_01_Register_With_Empty_Data: Click on register button
+[INFO ] [2022-03-07 23:44:32,989] Test_01_Register_With_Empty_Data: Verify error message is dispaled in firstname field
+[INFO ] [2022-03-07 23:45:03,116] Test_02_Register_With_Invalid_Email: Click on register button in header
+[INFO ] [2022-03-07 23:45:03,721] Test_02_Register_With_Invalid_Email: Check to female gender
+[INFO ] [2022-03-07 23:45:03,870] Test_02_Register_With_Invalid_Email: Input firstname
+[INFO ] [2022-03-07 23:45:03,879] Test_03_Register_Success: Click on register button in header
+[INFO ] [2022-03-07 23:45:04,408] Test_03_Register_Success: Check to female gender
+[INFO ] [2022-03-07 23:45:04,509] Test_03_Register_Success: Input firstname
+[INFO ] [2022-03-07 23:45:04,520] Test_04_Register_With_Existed_Email: Click on register button in header
+[INFO ] [2022-03-07 23:45:05,085] Test_04_Register_With_Existed_Email: Check to female gender
+[INFO ] [2022-03-07 23:45:05,207] Test_04_Register_With_Existed_Email: Input firstname
+[INFO ] [2022-03-07 23:45:05,217] Test_05_Register_With_Invalid_Password: Click on register button in header
+[INFO ] [2022-03-07 23:45:05,737] Test_05_Register_With_Invalid_Password: Check to female gender
+[INFO ] [2022-03-07 23:45:05,737] Test_05_Register_With_Invalid_Password: Input firstname
+[INFO ] [2022-03-07 23:45:05,853] Test_05_Register_With_Invalid_Password: Input firstname
+[INFO ] [2022-03-07 23:45:05,862] Test_06_Register_With_Unmatch_Password_CPassword: Click on register button in header
+[INFO ] [2022-03-07 23:45:06,381] Test_06_Register_With_Unmatch_Password_CPassword: Check to female gender
+[INFO ] [2022-03-07 23:45:06,479] Test_06_Register_With_Unmatch_Password_CPassword: Input firstname
+[INFO ] [2022-03-07 23:45:06,487] OS name = windows 10
+[INFO ] [2022-03-07 23:45:06,487] Driver instance name = windows 10
+[INFO ] [2022-03-07 23:45:06,903] Pre-condition: Step 1 - Open browser 'chrome' navigate to 'https://demo.nopcommerce.com/'
+[INFO ] [2022-03-07 23:45:09,427] Pre-condition: Step 2 - Open login page
+[INFO ] [2022-03-07 23:45:10,089] Test_01_Login_With_Empty_Data: Click to login button
+[INFO ] [2022-03-07 23:45:10,253] Test_01_Login_With_Empty_Data: Verify error message is displayed
+[INFO ] [2022-03-07 23:45:10,302]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-03-07 23:45:10,310] Test_02_Login_With_Invalid_Email: Input invalid email to textbox
+[INFO ] [2022-03-07 23:45:10,420] Test_02_Login_With_Invalid_Email: Click to login button
+[INFO ] [2022-03-07 23:45:10,541] Test_02_Login_With_Invalid_Email: Verify error message is displayed
+[INFO ] [2022-03-07 23:45:10,594]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-03-07 23:45:10,603] Test_03_Login_With_No_Existed_Email: Input no-existed email to textbox
+[INFO ] [2022-03-07 23:45:10,716] Test_03_Login_With_No_Existed_Email: Input password to textbox
+[INFO ] [2022-03-07 23:45:10,815] Test_03_Login_With_No_Existed_Email: Click to login button
+[INFO ] [2022-03-07 23:45:11,429] Test_03_Login_With_No_Existed_Email: Verify error message is displayed
+[INFO ] [2022-03-07 23:45:11,462]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-03-07 23:45:11,491]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-03-07 23:45:11,499] Test_04_Login_With_Empty_Password: Input email to textbox
+[INFO ] [2022-03-07 23:45:11,621] Test_04_Login_With_Empty_Password: Click to login button
+[INFO ] [2022-03-07 23:45:12,180] Test_04_Login_With_Empty_Password: Verify error message is displayed
+[INFO ] [2022-03-07 23:45:12,203]  -------------------------- PASSED -------------------------- 
+rror message is displayed
+[INFO ] [2022-03-07 23:45:12,203]  -------------------------- PASSED -------------------------- 

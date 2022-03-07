@@ -2,6 +2,8 @@ package com.nopcommerce.authentication;
 
 import org.testng.annotations.Test;
 
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.databind.JsonMappingException;
 import com.nopcommerce.data.RegisterData;
 
 import commons.BaseTest;
@@ -13,6 +15,9 @@ import nopcommerce.pageObject.RegisterPageObject;
 
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
+
+import java.io.IOException;
+
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
 
@@ -21,10 +26,12 @@ public class Register extends BaseTest {
 	LoginPageObject loginPage;
 	RegisterPageObject registerPage;
 	DashboardPageObject dashboardPage;
+	RegisterData registerData;
 	
 	@Parameters({"browser", "appURL"})
 	@BeforeClass
-	public void beforeClass(String browser, String appURL) {
+	public void beforeClass(String browser, String appURL) throws JsonParseException, JsonMappingException, IOException {
+		registerData = RegisterData.getRegisterData();
 		log.info("Pre-condition: Step 1 - Open browser '" + browser + "' navigate to '" + appURL + "'");
 		driver = getBrowserDriver(browser, appURL);
 		dashboardPage = (DashboardPageObject) PageGeneratorManager.getDashboardPage(getDriver());
@@ -39,19 +46,19 @@ public class Register extends BaseTest {
 		registerPage.clickToButtonByName(getDriver(), "register-button");
 		
 		log.info("Test_01_Register_With_Empty_Data: Verify error message is dispaled in firstname field");
-		verifyTrue(registerPage.isErrorMessageDisplayedByText(RegisterData.ErrorMessage.FIRSTNAME_ERROR));
+		verifyTrue(registerPage.isErrorMessageDisplayedByText(registerData.getFirstNameErrorMessage()));
 		
 		log.info("Test_01_Register_With_Empty_Data: Verify error message is dispaled in lastname field");
-		verifyTrue(registerPage.isErrorMessageDisplayedByText(RegisterData.ErrorMessage.LASTNAME_ERROR));
+		verifyTrue(registerPage.isErrorMessageDisplayedByText(registerData.getLastNameErrorMessage()));
 		
 		log.info("Test_01_Register_With_Empty_Data: Verify error message is dispaled in email field");
-		verifyTrue(registerPage.isErrorMessageDisplayedByText(RegisterData.ErrorMessage.EMAIL_ERROR));
+		verifyTrue(registerPage.isErrorMessageDisplayedByText(registerData.getEmailErrorMessage()));
 		
 		log.info("Test_01_Register_With_Empty_Data: Verify error message is dispaled in password field");
-		verifyTrue(registerPage.isErrorMessageDisplayedByText(RegisterData.ErrorMessage.PASSWORD_ERROR));
+		verifyTrue(registerPage.isErrorMessageDisplayedByText(registerData.getPasswordErrorMessage()));
 		
 		log.info("Test_01_Register_With_Empty_Data: Verify error message is dispaled in confirm password field");
-		verifyTrue(registerPage.isErrorMessageDisplayedByText(RegisterData.ErrorMessage.C_PASSWORD_ERROR));
+		verifyTrue(registerPage.isErrorMessageDisplayedByText(registerData.getConfirmPasswordErrorMessage()));
 	}
 	
 	@Test
@@ -63,25 +70,25 @@ public class Register extends BaseTest {
 		registerPage.checkToCheckBoxOrRadioByID(getDriver(), "gender-female");
 		
 		log.info("Test_02_Register_With_Invalid_Email: Input firstname");
-		registerPage.sendKeyToTextBoxByID(getDriver(), RegisterData.RegisterSuccess.FIRSTNAME, "FirstName");
+		registerPage.sendKeyToTextBoxByID(getDriver(), registerData.getFirstNameRegister(), "FirstName");
 		
 		log.info("Test_02_Register_With_Invalid_Email: Input lastname");
-		registerPage.sendKeyToTextBoxByID(getDriver(), RegisterData.RegisterSuccess.LASTNAME, "LastName");
+		registerPage.sendKeyToTextBoxByID(getDriver(), registerData.getLastNameRegister(), "LastName");
 		
 		log.info("Test_02_Register_With_Invalid_Email: Select day");
-		registerPage.selectOptionByText(getDriver(), RegisterData.RegisterSuccess.DAY, "DateOfBirthDay");
+		registerPage.selectOptionByText(getDriver(), registerData.getDayRegister(), "DateOfBirthDay");
 		
 		log.info("Test_02_Register_With_Invalid_Email: Select month");
-		registerPage.selectOptionByText(getDriver(), RegisterData.RegisterSuccess.MONTH, "DateOfBirthMonth");
+		registerPage.selectOptionByText(getDriver(), registerData.getMonthRegister(), "DateOfBirthMonth");
 		
 		log.info("Test_02_Register_With_Invalid_Email: Select year");
-		registerPage.selectOptionByText(getDriver(), RegisterData.RegisterSuccess.YEAR, "DateOfBirthYear");
+		registerPage.selectOptionByText(getDriver(), registerData.getYearRegister(), "DateOfBirthYear");
 		
-		log.info("Test_02_Register_With_Invalid_Email: Input invalid email" + RegisterData.DataInvalid.INVALID_EMAIL);
-		registerPage.sendKeyToTextBoxByID(getDriver(), RegisterData.DataInvalid.INVALID_EMAIL, "Email");
+		log.info("Test_02_Register_With_Invalid_Email: Input invalid email" + registerData.getInvalidEmail());
+		registerPage.sendKeyToTextBoxByID(getDriver(), registerData.getInvalidEmail(), "Email");
 		
 		log.info("Test_02_Register_With_Invalid_Email: Input company");
-		registerPage.sendKeyToTextBoxByID(getDriver(), RegisterData.RegisterSuccess.COMPANY, "Company");
+		registerPage.sendKeyToTextBoxByID(getDriver(), registerData.getCompanyRegister(), "Company");
 		
 		log.info("Test_02_Register_With_Invalid_Email: Input password");
 		registerPage.sendKeyToTextBoxByID(getDriver(), GlobalConstants.PASSWORD, "Password");
@@ -92,8 +99,8 @@ public class Register extends BaseTest {
 		log.info("Test_02_Register_With_Invalid_Email: Click on register button");
 		registerPage.clickToButtonByName(getDriver(), "register-button");
 		
-		log.info("Test_02_Register_With_Invalid_Email: Verify " + RegisterData.ErrorMessage.INVALID_EMAIL + " is displayed");
-		verifyTrue(registerPage.isErrorMessageDisplayedByText(RegisterData.ErrorMessage.INVALID_EMAIL));
+		log.info("Test_02_Register_With_Invalid_Email: Verify " + registerData.getInvalidEmailMessage() + " is displayed");
+		verifyTrue(registerPage.isErrorMessageDisplayedByText(registerData.getInvalidEmailMessage()));
 	}
 	
 	@Test
@@ -105,25 +112,25 @@ public class Register extends BaseTest {
 		registerPage.checkToCheckBoxOrRadioByID(getDriver(), "gender-female");
 		
 		log.info("Test_03_Register_Success: Input firstname");
-		registerPage.sendKeyToTextBoxByID(getDriver(), RegisterData.RegisterSuccess.FIRSTNAME, "FirstName");
+		registerPage.sendKeyToTextBoxByID(getDriver(), registerData.getFirstNameRegister(), "FirstName");
 		
 		log.info("Test_03_Register_Success: Input lastname");
-		registerPage.sendKeyToTextBoxByID(getDriver(), RegisterData.RegisterSuccess.LASTNAME, "LastName");
+		registerPage.sendKeyToTextBoxByID(getDriver(), registerData.getLastNameRegister(), "LastName");
 		
 		log.info("Test_03_Register_Success: Select day");
-		registerPage.selectOptionByText(getDriver(), RegisterData.RegisterSuccess.DAY, "DateOfBirthDay");
+		registerPage.selectOptionByText(getDriver(), registerData.getDayRegister(), "DateOfBirthDay");
 		
 		log.info("Test_03_Register_Success: Select month");
-		registerPage.selectOptionByText(getDriver(), RegisterData.RegisterSuccess.MONTH, "DateOfBirthMonth");
+		registerPage.selectOptionByText(getDriver(), registerData.getMonthRegister(), "DateOfBirthMonth");
 		
 		log.info("Test_03_Register_Success: Select year");
-		registerPage.selectOptionByText(getDriver(), RegisterData.RegisterSuccess.YEAR, "DateOfBirthYear");
+		registerPage.selectOptionByText(getDriver(), registerData.getYearRegister(), "DateOfBirthYear");
 		
 		log.info("Test_03_Register_Success: Input email");
 		registerPage.sendKeyToTextBoxByID(getDriver(), GlobalConstants.EMAIL, "Email");
 		
 		log.info("Test_03_Register_Success: Input company");
-		registerPage.sendKeyToTextBoxByID(getDriver(), RegisterData.RegisterSuccess.COMPANY, "Company");
+		registerPage.sendKeyToTextBoxByID(getDriver(), registerData.getCompanyRegister(), "Company");
 		
 		log.info("Test_03_Register_Success: Input password");
 		registerPage.sendKeyToTextBoxByID(getDriver(), GlobalConstants.PASSWORD, "Password");
@@ -134,8 +141,8 @@ public class Register extends BaseTest {
 		log.info("Test_03_Register_Success: Click on register button");
 		registerPage.clickToButtonByName(getDriver(), "register-button");
 		
-		log.info("Test_03_Register_Success: Verify " + RegisterData.Success.REGISTER_SUCCESS + " is displayed");
-		verifyTrue(registerPage.isSuccessMessageDisplayed(RegisterData.Success.REGISTER_SUCCESS));
+		log.info("Test_03_Register_Success: Verify " + registerData.getRegisterSuccess() + " is displayed");
+		verifyTrue(registerPage.isSuccessMessageDisplayed(registerData.getRegisterSuccess()));
 		
 		log.info("Test_03_Register_Success: Click on log out button");
 		registerPage.clickToHeaderButton(getDriver(), "Log out");
@@ -150,25 +157,25 @@ public class Register extends BaseTest {
 		registerPage.checkToCheckBoxOrRadioByID(getDriver(), "gender-female");
 		
 		log.info("Test_04_Register_With_Existed_Email: Input firstname");
-		registerPage.sendKeyToTextBoxByID(getDriver(), RegisterData.RegisterSuccess.FIRSTNAME, "FirstName");
+		registerPage.sendKeyToTextBoxByID(getDriver(), registerData.getFirstNameRegister(), "FirstName");
 		
 		log.info("Test_04_Register_With_Existed_Email: Input lastname");
-		registerPage.sendKeyToTextBoxByID(getDriver(), RegisterData.RegisterSuccess.LASTNAME, "LastName");
+		registerPage.sendKeyToTextBoxByID(getDriver(), registerData.getLastNameRegister(), "LastName");
 		
 		log.info("Test_04_Register_With_Existed_Email: Select day");
-		registerPage.selectOptionByText(getDriver(), RegisterData.RegisterSuccess.DAY, "DateOfBirthDay");
+		registerPage.selectOptionByText(getDriver(), registerData.getDayRegister(), "DateOfBirthDay");
 		
 		log.info("Test_04_Register_With_Existed_Email: Select month");
-		registerPage.selectOptionByText(getDriver(), RegisterData.RegisterSuccess.MONTH, "DateOfBirthMonth");
+		registerPage.selectOptionByText(getDriver(), registerData.getMonthRegister(), "DateOfBirthMonth");
 		
 		log.info("Test_04_Register_With_Existed_Email: Select year");
-		registerPage.selectOptionByText(getDriver(), RegisterData.RegisterSuccess.YEAR, "DateOfBirthYear");
+		registerPage.selectOptionByText(getDriver(), registerData.getYearRegister(), "DateOfBirthYear");
 		
 		log.info("Test_04_Register_With_Existed_Email: Input existed email");
 		registerPage.sendKeyToTextBoxByID(getDriver(), GlobalConstants.EMAIL, "Email");
 		
 		log.info("Test_04_Register_With_Existed_Email: Input company");
-		registerPage.sendKeyToTextBoxByID(getDriver(), RegisterData.RegisterSuccess.COMPANY, "Company");
+		registerPage.sendKeyToTextBoxByID(getDriver(), registerData.getCompanyRegister(), "Company");
 		
 		log.info("Test_04_Register_With_Existed_Email: Input password");
 		registerPage.sendKeyToTextBoxByID(getDriver(), GlobalConstants.PASSWORD, "Password");
@@ -179,8 +186,8 @@ public class Register extends BaseTest {
 		log.info("Test_04_Register_With_Existed_Email: Click on register button");
 		registerPage.clickToButtonByName(getDriver(), "register-button");
 		
-		log.info("Test_04_Register_With_Existed_Email: Verify " + RegisterData.ErrorMessage.EXISTED_EMAIL + " is displayed");
-		verifyTrue(registerPage.isExistedEMailErrorDisplayed(RegisterData.ErrorMessage.EXISTED_EMAIL));
+		log.info("Test_04_Register_With_Existed_Email: Verify " + registerData.getExistedEmailMessage() + " is displayed");
+		verifyTrue(registerPage.isExistedEMailErrorDisplayed(registerData.getExistedEmailMessage()));
 	}
 	
 	@Test
@@ -194,38 +201,38 @@ public class Register extends BaseTest {
 		registerPage.checkToCheckBoxOrRadioByID(getDriver(), "gender-female");
 		
 		log.info("Test_05_Register_With_Invalid_Password: Input firstname");
-		registerPage.sendKeyToTextBoxByID(getDriver(), RegisterData.RegisterSuccess.FIRSTNAME, "FirstName");
+		registerPage.sendKeyToTextBoxByID(getDriver(), registerData.getFirstNameRegister(), "FirstName");
 		
 		log.info("Test_05_Register_With_Invalid_Password: Input lastname");
-		registerPage.sendKeyToTextBoxByID(getDriver(), RegisterData.RegisterSuccess.LASTNAME, "LastName");
+		registerPage.sendKeyToTextBoxByID(getDriver(), registerData.getLastNameRegister(), "LastName");
 		
 		log.info("Test_05_Register_With_Invalid_Password: Select day");
-		registerPage.selectOptionByText(getDriver(), RegisterData.RegisterSuccess.DAY, "DateOfBirthDay");
+		registerPage.selectOptionByText(getDriver(), registerData.getDayRegister(), "DateOfBirthDay");
 		
 		log.info("Test_05_Register_With_Invalid_Password: Select month");
-		registerPage.selectOptionByText(getDriver(), RegisterData.RegisterSuccess.MONTH, "DateOfBirthMonth");
+		registerPage.selectOptionByText(getDriver(), registerData.getMonthRegister(), "DateOfBirthMonth");
 		
 		log.info("Test_05_Register_With_Invalid_Password: Select year");
-		registerPage.selectOptionByText(getDriver(), RegisterData.RegisterSuccess.YEAR, "DateOfBirthYear");
+		registerPage.selectOptionByText(getDriver(), registerData.getYearRegister(), "DateOfBirthYear");
 		
 		log.info("Test_05_Register_With_Invalid_Password: Input email");
 		registerPage.sendKeyToTextBoxByID(getDriver(), GlobalConstants.EMAIL, "Email");
 		
 		log.info("Test_05_Register_With_Invalid_Password: Input company");
-		registerPage.sendKeyToTextBoxByID(getDriver(), RegisterData.RegisterSuccess.COMPANY, "Company");
+		registerPage.sendKeyToTextBoxByID(getDriver(), registerData.getCompanyRegister(), "Company");
 		
-		log.info("Test_05_Register_With_Invalid_Password: Input invalid password" + RegisterData.DataInvalid.INVALID_PASSWORD);
-		registerPage.sendKeyToTextBoxByID(getDriver(), RegisterData.DataInvalid.INVALID_PASSWORD, "Password");
+		log.info("Test_05_Register_With_Invalid_Password: Input invalid password" + registerData.getInvalidPassword());
+		registerPage.sendKeyToTextBoxByID(getDriver(), registerData.getInvalidPassword(), "Password");
 		
 		log.info("Test_05_Register_With_Invalid_Password: Input confirm password");
-		registerPage.sendKeyToTextBoxByID(getDriver(), RegisterData.DataInvalid.INVALID_PASSWORD, "ConfirmPassword");
+		registerPage.sendKeyToTextBoxByID(getDriver(), registerData.getInvalidPassword(), "ConfirmPassword");
 		
 		log.info("Test_05_Register_With_Invalid_Password: Click on register button");
 		registerPage.clickToButtonByName(getDriver(), "register-button");
 		
-		log.info("Test_05_Register_With_Invalid_Password: Verify " + RegisterData.ErrorMessage.INVALID_PASSWORD_1 + RegisterData.ErrorMessage.INVALID_PASSWORD_2 + " is displayed");
-		verifyTrue(registerPage.isErrorMessageDisplayedByText(RegisterData.ErrorMessage.INVALID_PASSWORD_1));
-		verifyTrue(registerPage.isErrorMessageDisplayedByText(RegisterData.ErrorMessage.INVALID_PASSWORD_2));
+		log.info("Test_05_Register_With_Invalid_Password: Verify " + registerData.getInvalidPasswordMessage_1() + registerData.getInvalidPasswordMessage_2() + " is displayed");
+		verifyTrue(registerPage.isErrorMessageDisplayedByText(registerData.getInvalidPasswordMessage_1()));
+		verifyTrue(registerPage.isErrorMessageDisplayedByText(registerData.getInvalidPasswordMessage_2()));
 	}
 	
 	@Test
@@ -237,37 +244,37 @@ public class Register extends BaseTest {
 		registerPage.checkToCheckBoxOrRadioByID(getDriver(), "gender-female");
 		
 		log.info("Test_06_Register_With_Unmatch_Password_CPassword: Input firstname");
-		registerPage.sendKeyToTextBoxByID(getDriver(), RegisterData.RegisterSuccess.FIRSTNAME, "FirstName");
+		registerPage.sendKeyToTextBoxByID(getDriver(), registerData.getFirstNameRegister(), "FirstName");
 		
 		log.info("Test_06_Register_With_Unmatch_Password_CPassword: Input lastname");
-		registerPage.sendKeyToTextBoxByID(getDriver(), RegisterData.RegisterSuccess.LASTNAME, "LastName");
+		registerPage.sendKeyToTextBoxByID(getDriver(), registerData.getLastNameRegister(), "LastName");
 		
 		log.info("Test_05_Register_With_Invalid_Password: Select day");
-		registerPage.selectOptionByText(getDriver(), RegisterData.RegisterSuccess.DAY, "DateOfBirthDay");
+		registerPage.selectOptionByText(getDriver(), registerData.getDayRegister(), "DateOfBirthDay");
 		
 		log.info("Test_05_Register_With_Invalid_Password: Select month");
-		registerPage.selectOptionByText(getDriver(), RegisterData.RegisterSuccess.MONTH, "DateOfBirthMonth");
+		registerPage.selectOptionByText(getDriver(), registerData.getMonthRegister(), "DateOfBirthMonth");
 		
 		log.info("Test_05_Register_With_Invalid_Password: Select year");
-		registerPage.selectOptionByText(getDriver(), RegisterData.RegisterSuccess.YEAR, "DateOfBirthYear");
+		registerPage.selectOptionByText(getDriver(), registerData.getYearRegister(), "DateOfBirthYear");
 		
 		log.info("Test_06_Register_With_Unmatch_Password_CPassword: Input email");
 		registerPage.sendKeyToTextBoxByID(getDriver(),  GlobalConstants.EMAIL, "Email");
 		
 		log.info("Test_06_Register_With_Unmatch_Password_CPassword: Input company");
-		registerPage.sendKeyToTextBoxByID(getDriver(), RegisterData.RegisterSuccess.COMPANY, "Company");
+		registerPage.sendKeyToTextBoxByID(getDriver(), registerData.getCompanyRegister(), "Company");
 		
 		log.info("Test_06_Register_With_Unmatch_Password_CPassword: Input password" + GlobalConstants.PASSWORD);
 		registerPage.sendKeyToTextBoxByID(getDriver(), GlobalConstants.PASSWORD, "Password");
 		
-		log.info("Test_06_Register_With_Unmatch_Password_CPassword: Input orther confirm password" + RegisterData.DataInvalid.OTHER_C_PASSWORD);
-		registerPage.sendKeyToTextBoxByID(getDriver(), RegisterData.DataInvalid.OTHER_C_PASSWORD, "ConfirmPassword");
+		log.info("Test_06_Register_With_Unmatch_Password_CPassword: Input orther confirm password" + registerData.getOtherConfirmPassword());
+		registerPage.sendKeyToTextBoxByID(getDriver(), registerData.getOtherConfirmPassword(), "ConfirmPassword");
 	
 		log.info("Test_06_Register_With_Unmatch_Password_CPassword: Click on register button");
 		registerPage.clickToButtonByName(getDriver(), "register-button");
 		
-		log.info("Test_06_Register_With_Unmatch_Password_CPassword: Verify " + RegisterData.ErrorMessage.PASSWORD_UNMATCH + " is displayed");
-		verifyTrue(registerPage.isErrorMessageDisplayedByText(RegisterData.ErrorMessage.PASSWORD_UNMATCH));
+		log.info("Test_06_Register_With_Unmatch_Password_CPassword: Verify " + registerData.getConfirmPasswordErrorMessage() + " is displayed");
+		verifyTrue(registerPage.isErrorMessageDisplayedByText(registerData.getConfirmPasswordErrorMessage()));
 	}
 	
 	

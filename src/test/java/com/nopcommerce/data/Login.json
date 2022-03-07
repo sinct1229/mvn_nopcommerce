@@ -1,0 +1,10 @@
+{
+	"emptyEmailMessage": "Please enter your email",
+	"invalidEmailMessage":"Wrong email",
+	"summaryErrorMessage":"Login was unsuccessful. Please correct the errors and try again.",
+	"noExistedEmailMessage":"No customer account found",
+	"invalidPasswordMessage":"The credentials provided are incorrect",
+	"invalidEmail":"tiki@",
+	"noExistedEmail":"tiki@hmail.com",
+	"invalidPassword":"tiki@123"
+}

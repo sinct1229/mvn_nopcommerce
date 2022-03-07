@@ -1,0 +1,30 @@
+{
+
+"firstNameErrorMessage":"First name is required.",
+"lastNameErrorMessage":"Last name is required.",
+"emailErrorMessage":"Email is required.",
+"passwordErrorMessage":"Password is required.",
+"confirmPasswordErrorMessage":"Password is required.",
+"invalidEmailMessage":"Wrong email",
+"existedEmailMessage":"The specified email already exists",
+"invalidPasswordMessage_1":"Password must meet the following rules: ",
+"invalidPasswordMessage_2":"must have at least 6 characters",
+"passwordUnmatchError":"The password and confirmation password do not match.",
+"invalidEmail":"123test",
+"invalidPassword":"123pa",
+"existedEmail":"sinct1999@gmail.com",
+"otherConfirmPassword":"tiki@456",
+"registerSuccess":"Your registration completed",
+"RegisterSuccess":{
+	"firstname":"sin",
+	"lastname":"cao",
+	"day":"29",
+	"month":"December",
+	"year":"1999",
+	"company":"Tiki"
+}
+
+
+
+
+}

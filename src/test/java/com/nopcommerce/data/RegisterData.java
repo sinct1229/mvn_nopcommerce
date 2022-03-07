@@ -1,37 +1,176 @@
 package com.nopcommerce.data;
 
+import java.io.File;
+import java.io.IOException;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import commons.GlobalConstants;
+
 public class RegisterData {
-	public static class ErrorMessage {
-		public static final String FIRSTNAME_ERROR = "First name is required.";
-		public static final String LASTNAME_ERROR = "Last name is required.";
-		public static final String EMAIL_ERROR = "Email is required.";
-		public static final String PASSWORD_ERROR = "Password is required.";
-		public static final String C_PASSWORD_ERROR = "Password is required.";
-		public static final String INVALID_EMAIL = "Wrong email";
-		public static final String EXISTED_EMAIL = "The specified email already exists";
-		public static final String INVALID_PASSWORD_1 = "Password must meet the following rules: ";
-		public static final String INVALID_PASSWORD_2 = "must have at least 6 characters";
-		public static final String PASSWORD_UNMATCH = "The password and confirmation password do not match.";
+	public static RegisterData getRegisterData() throws JsonParseException, JsonMappingException, IOException {
+		ObjectMapper mapper = new ObjectMapper();
+		mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+		return mapper.readValue(
+				new File(GlobalConstants.PROJECT_PATH + "\\src\\test\\java\\com\\nopcommerce\\data\\Register.json"),
+				RegisterData.class);
 	}
 	
-	public static class RegisterSuccess{
-		public static final String FIRSTNAME = "Sin";
-		public static final String LASTNAME = "Cao";
-		public static final String DAY = "29";
-		public static final String MONTH = "December";
-		public static final String YEAR = "1999";
-		public static final String COMPANY = "Tiki";
-	}
+	@JsonProperty("firstNameErrorMessage")
+	String   firstNameErrorMessage;
 	
-	public static class DataInvalid{
-		public static final String INVALID_EMAIL = "123test";
-		public static final String INVALID_PASSWORD = "123pa";
-		public static final String EXISTED_EMAIL = "sinct1999@gmail.com";
-		public static final String OTHER_C_PASSWORD = "tiki@456";
-	}
+	@JsonProperty("lastNameErrorMessage")
+	String   lastNameErrorMessage;
 	
-	public static class Success{
-		public static final String REGISTER_SUCCESS = "Your registration completed";
+	@JsonProperty("emailErrorMessage")
+	String   emailErrorMessage;
+	
+	@JsonProperty("passwordErrorMessage")
+	String   passwordErrorMessage;
+	
+	@JsonProperty("confirmPasswordErrorMessage")
+	String   confirmPasswordErrorMessage;
+	
+	@JsonProperty("invalidEmailMessage")
+	String   invalidEmailMessage;
+	
+	@JsonProperty("existedEmailMessage")
+	String   existedEmailMessage;
+	
+	@JsonProperty("invalidPasswordMessage_1")
+	String   invalidPasswordMessage_1;
+	
+	@JsonProperty("invalidPasswordMessage_2")
+	String   invalidPasswordMessage_2;
+	
+	@JsonProperty("passwordUnmatchError")
+	String   passwordUnmatchError;
+	
+	@JsonProperty("invalidEmail")
+	String   invalidEmail;
+	
+	@JsonProperty("invalidPassword")
+	String   invalidPassword;
+	
+	@JsonProperty("existedEmail")
+	String   existedEmail;
+	
+	@JsonProperty("otherConfirmPassword")
+	String   otherConfirmPassword;
+	
+	@JsonProperty("registerSuccess")
+	String   registerSuccess;
+
+	public String getFirstNameErrorMessage() {
+		return firstNameErrorMessage;
 	}
 
+	public String getLastNameErrorMessage() {
+		return lastNameErrorMessage;
+	}
+
+	public String getEmailErrorMessage() {
+		return emailErrorMessage;
+	}
+
+	public String getPasswordErrorMessage() {
+		return passwordErrorMessage;
+	}
+
+	public String getConfirmPasswordErrorMessage() {
+		return confirmPasswordErrorMessage;
+	}
+
+	public String getInvalidEmailMessage() {
+		return invalidEmailMessage;
+	}
+
+	public String getExistedEmailMessage() {
+		return existedEmailMessage;
+	}
+
+	public String getInvalidPasswordMessage_1() {
+		return invalidPasswordMessage_1;
+	}
+
+	public String getInvalidPasswordMessage_2() {
+		return invalidPasswordMessage_2;
+	}
+
+	public String getPasswordUnmatchErrorMessage() {
+		return passwordUnmatchError;
+	}
+
+	public String getInvalidEmail() {
+		return invalidEmail;
+	}
+
+	public String getInvalidPassword() {
+		return invalidPassword;
+	}
+
+	public String getExistedEmail() {
+		return existedEmail;
+	}
+
+	public String getOtherConfirmPassword() {
+		return otherConfirmPassword;
+	}
+
+	public String getRegisterSuccess() {
+		return registerSuccess;
+	}
+	
+	
+	@JsonProperty("RegisterSuccess")
+	RegisterSuccess register;
+	
+	public class RegisterSuccess{
+		@JsonProperty("firstname")
+		String firstname;
+		
+		@JsonProperty("lastname")
+		String lastname;
+		
+		@JsonProperty("day")
+		String day;
+		
+		@JsonProperty("month")
+		String month;
+		
+		@JsonProperty("year")
+		String year;
+		
+		@JsonProperty("company")
+		String company;
+		
+	}
+	
+	public String getFirstNameRegister() {
+		return register.firstname;
+	}
+	
+	public String getLastNameRegister() {
+		return register.lastname;
+	}
+	
+	public String getDayRegister() {
+		return register.day;
+	}
+	
+	public String getMonthRegister() {
+		return register.month;
+	}
+	
+	public String getYearRegister() {
+		return register.year;
+	}
+	
+	public String getCompanyRegister() {
+		return register.company;
+	}
 }

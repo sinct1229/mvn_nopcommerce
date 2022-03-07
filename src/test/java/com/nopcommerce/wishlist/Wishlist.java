@@ -1,11 +1,15 @@
 package com.nopcommerce.wishlist;
 
+import java.io.IOException;
+
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.databind.JsonMappingException;
 import com.nopcommerce.data.WishlistData;
 
 import commons.BaseTest;
@@ -26,10 +30,12 @@ public class Wishlist extends BaseTest{
 	ProductDetailPageObject productDetailPage;
 	WishlistPageObject wishlistPage;
 	CartPageObject cartPage;
+	WishlistData wishlistData;
 	
 	@Parameters({"browser", "appURL"})
 	@BeforeClass
-	public void beforeClass(String browser, String appURL) {
+	public void beforeClass(String browser, String appURL) throws JsonParseException, JsonMappingException, IOException {
+		wishlistData = WishlistData.getWishlistData();
 		log.info("Pre-condition: Step 1 - Open browser '" + browser + "' navigate to '" + appURL + "'");
 		driver = getBrowserDriver(browser, appURL);
 		dashboardPage = (DashboardPageObject) PageGeneratorManager.getDashboardPage(getDriver());
@@ -47,7 +53,7 @@ public class Wishlist extends BaseTest{
 		
 		dashboardPage = PageGeneratorManager.getDashboardPage(driver);
 		
-		dashboardPage.OpenProductDetail(WishlistData.PRODUCT_NAME);
+		dashboardPage.OpenProductDetail(wishlistData.getProductName());
 		
 		productDetailPage = PageGeneratorManager.getProductDetailPage(driver);
 	}
@@ -65,7 +71,7 @@ public class Wishlist extends BaseTest{
 		wishlistPage = (WishlistPageObject) productDetailPage.openPageInFooterByName(driver, "Wishlist");
 		
 		log.info("Verify product is added to wishlist page");
-		verifyTrue(wishlistPage.isProductDisplayedInWishlistPage(WishlistData.PRODUCT_NAME));
+		verifyTrue(wishlistPage.isProductDisplayedInWishlistPage(wishlistData.getProductName()));
 		
 	}
 	
@@ -93,7 +99,7 @@ public class Wishlist extends BaseTest{
 		dashboardPage = wishlistPage.openDashboardPage(driver);
 		
 		log.info("Open product detail");
-		dashboardPage.OpenProductDetail(WishlistData.PRODUCT_NAME);
+		dashboardPage.OpenProductDetail(wishlistData.getProductName());
 		productDetailPage = PageGeneratorManager.getProductDetailPage(driver);
 		
 		log.info("Click to wishlist button");
@@ -106,7 +112,7 @@ public class Wishlist extends BaseTest{
 		wishlistPage.clickToButtonByClassName(driver, "remove-btn");
 		
 		log.info("Verify The wishlist is empty! is displayed");
-		verifyTrue(wishlistPage.isMessageDisplayed(WishlistData.EMPTY_MESSAGE));
+		verifyTrue(wishlistPage.isMessageDisplayed(wishlistData.getEmptyMessage()));
 		
 	}
 	
@@ -116,7 +122,7 @@ public class Wishlist extends BaseTest{
 		dashboardPage = wishlistPage.openDashboardPage(driver);
 		
 		log.info("Open product detail");
-		dashboardPage.OpenProductDetail(WishlistData.PRODUCT_1);
+		dashboardPage.OpenProductDetail(wishlistData.getProduct_1());
 		productDetailPage = PageGeneratorManager.getProductDetailPage(driver);
 		
 		log.info("Click to Add to compare list button");
@@ -129,7 +135,7 @@ public class Wishlist extends BaseTest{
 		dashboardPage = wishlistPage.openDashboardPage(driver);
 		
 		log.info("Open product detail");
-		dashboardPage.OpenProductDetail(WishlistData.PRODUCT_2);
+		dashboardPage.OpenProductDetail(wishlistData.getProduct_2());
 		productDetailPage = PageGeneratorManager.getProductDetailPage(driver);
 		
 		log.info("Click to Add to compare list button");
@@ -141,11 +147,11 @@ public class Wishlist extends BaseTest{
 		log.info("Open compare product list page");
 		wishlistPage =  (WishlistPageObject) productDetailPage.openPageInFooterByName(driver, "Compare products list");
 		
-		log.info("Verify " + WishlistData.PRODUCT_1 + " is added successfully");
-		verifyTrue(wishlistPage.isProductAdded(WishlistData.PRODUCT_1));
+		log.info("Verify " + wishlistData.getProduct_1() + " is added successfully");
+		verifyTrue(wishlistPage.isProductAdded(wishlistData.getProduct_1()));
 		
-		log.info("Verify " + WishlistData.PRODUCT_2 + " is added successfully");
-		verifyTrue(wishlistPage.isProductAdded(WishlistData.PRODUCT_2));
+		log.info("Verify " + wishlistData.getProduct_2() + " is added successfully");
+		verifyTrue(wishlistPage.isProductAdded(wishlistData.getProduct_2()));
 		
 	}
 	
@@ -155,37 +161,37 @@ public class Wishlist extends BaseTest{
 		dashboardPage = wishlistPage.openDashboardPage(driver);
 		
 		log.info("Open product detail");
-		dashboardPage.OpenProductDetail(WishlistData.PRODUCT_1);
+		dashboardPage.OpenProductDetail(wishlistData.getProduct_1());
 		productDetailPage = PageGeneratorManager.getProductDetailPage(driver);
 		
 		log.info("Open home page");
 		dashboardPage = wishlistPage.openDashboardPage(driver);
 		
 		log.info("Open product detail");
-		dashboardPage.OpenProductDetail(WishlistData.PRODUCT_2);
+		dashboardPage.OpenProductDetail(wishlistData.getProduct_2());
 		productDetailPage = PageGeneratorManager.getProductDetailPage(driver);
 		
 		log.info("Open home page");
 		dashboardPage = wishlistPage.openDashboardPage(driver);
 		
 		log.info("Open product detail");
-		dashboardPage.OpenProductDetail(WishlistData.PRODUCT_3);
+		dashboardPage.OpenProductDetail(wishlistData.getProduct_3());
 		productDetailPage = PageGeneratorManager.getProductDetailPage(driver);
 		
 		log.info("Open home page");
 		dashboardPage = wishlistPage.openDashboardPage(driver);
 		
 		log.info("Open product detail");
-		dashboardPage.OpenProductDetail(WishlistData.PRODUCT_4);
+		dashboardPage.OpenProductDetail(wishlistData.getProduct_4());
 		productDetailPage = PageGeneratorManager.getProductDetailPage(driver);
 		
 		log.info("Open recently products viewed page");
 		wishlistPage =(WishlistPageObject) productDetailPage.openPageInFooterByName(driver, "Recently viewed products");
 		
 		log.info("Verify 3 products is displayed");
-		verifyTrue(wishlistPage.isProductDisplayed(WishlistData.PRODUCT_1));
-		verifyTrue(wishlistPage.isProductDisplayed(WishlistData.PRODUCT_3));
-		verifyTrue(wishlistPage.isProductDisplayed(WishlistData.PRODUCT_4));
+		verifyTrue(wishlistPage.isProductDisplayed(wishlistData.getProduct_1()));
+		verifyTrue(wishlistPage.isProductDisplayed(wishlistData.getProduct_3()));
+		verifyTrue(wishlistPage.isProductDisplayed(wishlistData.getProduct_4()));
 		
 	}
 	

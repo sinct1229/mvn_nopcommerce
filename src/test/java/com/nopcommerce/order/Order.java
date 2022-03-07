@@ -1,11 +1,15 @@
 package com.nopcommerce.order;
 
+import java.io.IOException;
+
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.databind.JsonMappingException;
 import com.nopcommerce.data.OrderData;
 
 import commons.BaseTest;
@@ -24,10 +28,12 @@ public class Order extends BaseTest{
 	AddressPageObject addressPage;
 	ProductDetailPageObject productDetailPage;
 	CartPageObject cartPage;
+	OrderData orderData;
 	
 	@Parameters({"browser", "appURL"})
 	@BeforeClass
-	public void beforeClass(String browser, String appURL) {
+	public void beforeClass(String browser, String appURL) throws JsonParseException, JsonMappingException, IOException {
+		orderData = OrderData.getOrderData();
 		log.info("Pre-condition: Step 1 - Open browser '" + browser + "' navigate to '" + appURL + "'");
 		driver = getBrowserDriver(browser, appURL);
 		dashboardPage = (DashboardPageObject) PageGeneratorManager.getDashboardPage(getDriver());
@@ -45,7 +51,7 @@ public class Order extends BaseTest{
 		
 		dashboardPage = PageGeneratorManager.getDashboardPage(driver);
 		
-		dashboardPage.OpenProductDetail(OrderData.PRODUCT);
+		dashboardPage.OpenProductDetail(orderData.getProduct());
 		
 		productDetailPage = PageGeneratorManager.getProductDetailPage(driver);
 	}
