@@ -77,9 +77,6 @@ public class ChangePassword extends BaseTest{
 		
 		log.info("Log out");
 		dashboardPage = (DashboardPageObject) changePasswordPage.clickToHeaderButton(driver, "Log out");
-
-		log.info("Log out");
-		dashboardPage = (DashboardPageObject) changePasswordPage.clickToHeaderButton(driver, "Log out");
 		
 		log.info("Login");
 		loginPage = (LoginPageObject) dashboardPage.clickToHeaderButton(driver, "Log in");
